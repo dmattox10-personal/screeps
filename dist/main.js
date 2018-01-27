@@ -9,7 +9,7 @@ module.exports.loop = function () {
     cleanup.memory(Memory);
     //var lcl = Game.room.controller();
     for(var name in Game.rooms) {
-        console.log('Room "'+name+'" has '+Game.rooms[name].level+' levels');
+        console.log('Room "'+name+'" has '+Game.rooms[name].controller.level+' levels');
     }
 
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
