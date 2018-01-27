@@ -6,7 +6,7 @@ var cleanup = require('cleanup');
 
 module.exports.loop = function () {
 
-    cleanup.memory();
+    cleanup.memory(Memory);
 
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     console.log('Harvesters: ' + harvesters.length);
