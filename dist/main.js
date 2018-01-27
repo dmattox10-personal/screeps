@@ -13,7 +13,7 @@ module.exports.loop = function () {
 
         switch(Game.rooms[name].controller.level) {
             case 1:
-            LevelOne
+            
             break;
             case 2:
             //phaseTwo();
