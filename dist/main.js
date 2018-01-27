@@ -8,7 +8,7 @@ module.exports.loop = function () {
 
     cleanup.memory(Memory);
     //var lcl = Game.room.controller();
-    console.log(Game.rooms[0]);
+    console.log(Game.rooms);
     for(var name in Game.rooms) {
         console.log('Room "'+name+'" has '+Game.rooms[name].controller.level+' levels');
     }
