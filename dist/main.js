@@ -7,8 +7,8 @@ var cleanup = require('cleanup');
 module.exports.loop = function () {
 
     cleanup.memory(Memory);
-    var lcl = Game.room.controller();
-    console.log(lcl);
+    //var lcl = Game.room.controller();
+    //console.log(lcl);
 
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     console.log('Harvesters: ' + harvesters.length);
