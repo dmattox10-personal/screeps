@@ -8,10 +8,12 @@ module.exports.loop = function () {
 
     cleanup.memory(Memory);
     //var lcl = Game.room.controller();
-    console.log(Game.room.controller.level);
+    for(var name in Game.rooms) {
+        console.log('Room "'+name+'" has '+Game.rooms[name].level+' levels');
+    }
 
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
-    console.log('Harvesters: ' + harvesters.length);
+    //console.log('Harvesters: ' + harvesters.length);
 
     if(harvesters.length < 2) {
         var newName = 'Harvester' + Game.time;
