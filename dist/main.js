@@ -6,12 +6,33 @@ var cleanup = require('cleanup');
 
 module.exports.loop = function () {
 
-    cleanup.memory(Memory);
+    cleanup.memory();
     //var lcl = Game.room.controller();
-    console.log(Game.rooms);
     for(var name in Game.rooms) {
         console.log('Room "'+name+'" has '+Game.rooms[name].controller.level+' levels');
+
+        switch(Game.rooms[name].controller.level) {
+            case 1:
+              console.log(Game.creeps);
+              //phaseOne();
+
+              break;
+            case 2:
+              //phaseTwo();
+              break;
+        }
+
     }
+
+
+
+
+
+
+
+
+
+
 
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     //console.log('Harvesters: ' + harvesters.length);
