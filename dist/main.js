@@ -8,7 +8,7 @@ module.exports.loop = function () {
 
     cleanup.memory(Memory);
     //var lcl = Game.room.controller();
-    console.log(Game.Room.controller.level);
+    console.log(Game.room.controller.level);
 
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     console.log('Harvesters: ' + harvesters.length);
