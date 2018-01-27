@@ -13,7 +13,7 @@ module.exports.loop = function () {
 
         switch(Game.rooms[name].controller.level) {
             case 1:
-              console.log(Game.creeps);
+              console.log(Game.creeps.length);
               //phaseOne();
 
               break;
