@@ -37,10 +37,13 @@ module.exports.loop = function () {
         Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName,
             {memory: {role: 'harvester'}});
     }
-    if(upgraders.length < 6) {
-        var newName = 'Upgrader' + Game.time;
-        Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName,
-            {memory: {role: 'upgrader'}});
+    else {
+      if(upgraders.length < 6) {
+          var newName = 'Upgrader' + Game.time;
+          Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName,
+              {memory: {role: 'upgrader'}});
+    }
+
     }
 
     if(Game.spawns['Spawn1'].spawning) {
