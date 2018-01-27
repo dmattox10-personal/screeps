@@ -13,13 +13,11 @@ module.exports.loop = function () {
 
         switch(Game.rooms[name].controller.level) {
             case 1:
-              console.log(Game.creeps.names.length);
-              //phaseOne();
-
-              break;
+            LevelOne
+            break;
             case 2:
-              //phaseTwo();
-              break;
+            //phaseTwo();
+            break;
         }
 
     }
@@ -31,17 +29,18 @@ module.exports.loop = function () {
 
 
 
-
-
-
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
-    //console.log('Harvesters: ' + harvesters.length);
+    var upgraders  = _.filter(Game.creeps, (cree0) => creep.memory.role == 'upgrader');
 
     if(harvesters.length < 2) {
         var newName = 'Harvester' + Game.time;
-        console.log('Spawning new harvester: ' + newName);
         Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName,
             {memory: {role: 'harvester'}});
+    }
+    if(upgraders.length < 2) {
+        var newName = 'Upgrader' + Game.time;
+        Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName,
+            {memory: {role: 'upgrader'}});
     }
 
     if(Game.spawns['Spawn1'].spawning) {
