@@ -13,7 +13,7 @@ module.exports.loop = function () {
 
         switch(Game.rooms[name].controller.level) {
             case 1:
-            
+
             break;
             case 2:
             //phaseTwo();
@@ -30,7 +30,7 @@ module.exports.loop = function () {
 
 
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
-    var upgraders  = _.filter(Game.creeps, (cree0) => creep.memory.role == 'upgrader');
+    var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
 
     if(harvesters.length < 2) {
         var newName = 'Harvester' + Game.time;
