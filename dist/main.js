@@ -7,14 +7,17 @@ var cleanup = require('cleanup');
 module.exports.loop = function () {
 
     cleanup.memory();
+    if (Memory.phase < Game.rooms[name].controller.level) {
+      //phase(Game.rooms[name].controller.level)
+    }
     for(var name in Game.rooms) {
 
         switch(Game.rooms[name].controller.level) {
             case 1:
-            phaseOne();
+
             break;
             case 2:
-            phaseTwo();
+
             break;
         }
 
@@ -30,7 +33,7 @@ module.exports.loop = function () {
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
     // Make sure we have enough harvesters, and if so
-    if(harvesters.length < 2) {
+    if(harvesters.length < 6) {
         var newName = 'Harvester' + Game.time;
         Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName,
             {memory: {role: 'harvester'}});
@@ -55,11 +58,11 @@ module.exports.loop = function () {
 }
 
 function phaseOne() {
-  console.log("Phase One Begins!");
+
 }
 
 function phaseTwo() {
-  console.log("Phase Two Begins!");
+
 }
 /*
 // DEFENSE CODE ================================================================
