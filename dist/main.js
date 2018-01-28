@@ -47,7 +47,7 @@ module.exports.loop = function () {
     // This code needs moved into 'Phase One', similar code written and tested for each phase
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
-    var builder    = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
+    var builders    = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
 
     // Make sure we have enough harvesters, and if so
     if(harvesters.length < 6) {
