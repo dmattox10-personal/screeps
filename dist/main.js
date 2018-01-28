@@ -4,6 +4,8 @@ var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
 var cleanup = require('cleanup');
+const ROOM_HEIGHT = 50;
+const ROOM_WIDTH = 50;
 
 module.exports.loop = function () {
 
@@ -71,9 +73,16 @@ function phaseOne() {
 }
 
 function phaseTwo() {
+  for (var x = 0; x < ROOM_WIDTH; x++) {
+    for (var y = 0; y < ROOM_HEIGHT; y++) {
+      console.log(Game.room.lookAt(x, y));
+    }
+  }
+  /*
   for (var i = 0; i < 5; i++) {
   Game.rooms[name].createConstructionSite(5, (i + 37), STRUCTURE_EXTENSION); //TODO HARDCODED
   }
+  */
 }
 /*
 // DEFENSE CODE ================================================================
