@@ -22,7 +22,7 @@ module.exports.loop = function () {
             var Site = [];
             for (var i = 0; i < 5; i++) {
               Site[i] = Game.rooms.roomName.createConstructionSite(5, (i + 37), STRUCTURE_EXTENSION);
-            //builders.build(site[i]);
+            builders.build(site[i]);
           }
             break;
             case 3: // THIS is the one that will matter, write code for
@@ -47,7 +47,7 @@ module.exports.loop = function () {
     // This code needs moved into 'Phase One', similar code written and tested for each phase
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
-    var builders    = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
+    var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
 
     // Make sure we have enough harvesters, and if so
     if(harvesters.length < 6) {
