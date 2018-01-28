@@ -9,18 +9,20 @@ module.exports.loop = function () {
 
     cleanup.memory();
 
+    console.log(Game.spawns['Spawn1'].room);
+
     for(var name in Game.rooms) {
       if (Memory.phase < Game.rooms[name].controller.level) {
         Memory.phase = Game.rooms[name].controller.level;
         //phase(Game.rooms[name].controller.level)
-        switch(Memory.phase) {
+        switch(Memory.phase) { // TODO Map the room, every time we level up!
             case 1:
 
             break;
             case 2: // Put extensions here!
-            var roomName = Game.spawns.Spawn1.room; //TODO HARDCODED
+            var roomName = Game.spawns['Spawn1'].room; //TODO HARDCODED
             for (var i = 0; i < 5; i++) {
-            Game.rooms.E35S7.createConstructionSite(5, (i + 37), STRUCTURE_EXTENSION);
+            Game.rooms.E35S7.createConstructionSite(5, (i + 37), STRUCTURE_EXTENSION); //TODO HARDCODED
             //builders.build(site[i]);
           }
             break;
@@ -39,18 +41,18 @@ module.exports.loop = function () {
     var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
 
     // Make sure we have enough harvesters, and if so
-    if(harvesters.length < 6) {
+    if(harvesters.length < Memory.phase * 2) {
         var newName = 'Harvester' + Game.time;
         Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName, // TODO 'Spawn1' HARDCODED
             {memory: {role: 'harvester'}});
     }
     else { // then we start making upgraders
-      if(upgraders.length < 3) {
+      if(upgraders.length < Memory.phase * 2) {
           var newName = 'Upgrader' + Game.time;
           Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName, // TODO
               {memory: {role: 'upgrader'}});
             }
-      if (builders.length < 3) {
+      if (builders.length < Memory.phase * 2) {
           var newName = 'Builder' + Game.time;
           Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName, // TODO
             {memory: {role: 'builder'}});
