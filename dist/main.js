@@ -7,12 +7,11 @@ var cleanup = require('cleanup');
 module.exports.loop = function () {
 
     cleanup.memory();
-    //var lcl = Game.room.controller();
     for(var name in Game.rooms) {
 
         switch(Game.rooms[name].controller.level) {
             case 1:
-
+            phaseOne();
             break;
             case 2:
             //phaseTwo();
@@ -53,6 +52,10 @@ module.exports.loop = function () {
             roleUpgrader.run(creep);
         }
     }
+}
+
+function phaseOne() {
+  console.log("Phase One Begins!");
 }
 /*
 // DEFENSE CODE ================================================================
