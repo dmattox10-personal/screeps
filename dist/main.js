@@ -19,10 +19,9 @@ module.exports.loop = function () {
             break;
             case 2: // Put extensions here!
             var roomName = Game.spawns.Spawn1.room; //TODO HARDCODED
-            var Site = [];
             for (var i = 0; i < 5; i++) {
-              Site[i] = Game.rooms.E35S7.createConstructionSite(5, (i + 37), STRUCTURE_EXTENSION);
-            builders.build(site[i]);
+            Game.rooms.E35S7.createConstructionSite(5, (i + 37), STRUCTURE_EXTENSION);
+            //builders.build(site[i]);
           }
             break;
             case 3: // THIS is the one that will matter, write code for
