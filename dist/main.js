@@ -21,7 +21,7 @@ module.exports.loop = function () {
             var roomName = Game.spawns.Spawn1.room; //TODO HARDCODED
             var Site = [];
             for (var i = 0; i < 5; i++) {
-              Site[i] = Game.spawns['spawn1'].room.createConstructionSite(5, (i + 37), STRUCTURE_EXTENSION);
+              Site[i] = Game.spawns['spawn1'].createConstructionSite(5, (i + 37), STRUCTURE_EXTENSION);
             builders.build(site[i]);
           }
             break;
