@@ -73,6 +73,7 @@ function phaseOne() {
 function phaseTwo() {
   for (var i = 0; i < 5; i++) {
   Game.rooms[name].createConstructionSite(5, (i + 37), STRUCTURE_EXTENSION); //TODO HARDCODED
+  }
 }
 /*
 // DEFENSE CODE ================================================================
