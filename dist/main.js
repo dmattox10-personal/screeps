@@ -14,7 +14,7 @@ module.exports.loop = function () {
             phaseOne();
             break;
             case 2:
-            //phaseTwo();
+            phaseTwo();
             break;
         }
 
@@ -56,6 +56,10 @@ module.exports.loop = function () {
 
 function phaseOne() {
   console.log("Phase One Begins!");
+}
+
+function phaseTwo() {
+  console.log("Phase Two Begins!");
 }
 /*
 // DEFENSE CODE ================================================================
