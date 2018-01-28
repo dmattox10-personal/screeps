@@ -9,22 +9,15 @@ module.exports.loop = function () {
 
     cleanup.memory();
 
-    console.log(Object.values(Game.spawns['Spawn1'].valueOf(room)));
-
-    for(var name in Game.rooms) {
-      if (Memory.phase < Game.rooms[name].controller.level) {
-        Memory.phase = Game.rooms[name].controller.level;
-        //phase(Game.rooms[name].controller.level)
+    for(var name in Game.rooms) { // GOOD
+      if (Memory.phase < Game.rooms[name].controller.level) { // GOOD
+        Memory.phase = Game.rooms[name].controller.level; // GOOD
         switch(Memory.phase) { // TODO Map the room, every time we level up!
             case 1:
-
+            phaseOne();
             break;
             case 2: // Put extensions here!
-            var roomName = Game.spawns['Spawn1'].room; //TODO HARDCODED
-            for (var i = 0; i < 5; i++) {
-            Game.rooms.E35S7.createConstructionSite(5, (i + 37), STRUCTURE_EXTENSION); //TODO HARDCODED
-            //builders.build(site[i]);
-          }
+            phaseTwo();
             break;
             case 3: // THIS is the one that will matter, write code for
 
@@ -74,11 +67,12 @@ module.exports.loop = function () {
 }
 
 function phaseOne() {
-
+  console.log("Welcome to the jungle!");
 }
 
 function phaseTwo() {
-
+  for (var i = 0; i < 5; i++) {
+  Game.rooms[name].createConstructionSite(5, (i + 37), STRUCTURE_EXTENSION); //TODO HARDCODED
 }
 /*
 // DEFENSE CODE ================================================================
