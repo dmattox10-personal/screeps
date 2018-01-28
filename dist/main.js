@@ -7,6 +7,7 @@ var cleanup = require('cleanup');
 module.exports.loop = function () {
 
     cleanup.memory();
+    var name = this.Game.rooms.name;
     if (Memory.phase < Game.rooms[name].controller.level) {
       //phase(Game.rooms[name].controller.level)
     }
