@@ -2,6 +2,7 @@
 
 var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
+var roleBuilder = require('role.builder');
 var cleanup = require('cleanup');
 
 module.exports.loop = function () {
@@ -51,18 +52,18 @@ module.exports.loop = function () {
     // Make sure we have enough harvesters, and if so
     if(harvesters.length < 6) {
         var newName = 'Harvester' + Game.time;
-        Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName,
+        Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName, // TODO 'Spawn1' HARDCODED
             {memory: {role: 'harvester'}});
     }
     else { // then we start making upgraders
       if(upgraders.length < 3) {
           var newName = 'Upgrader' + Game.time;
-          Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName,
+          Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName, // TODO
               {memory: {role: 'upgrader'}});
             }
       if (builders.length < 3) {
           var newName = 'Builder' + Game.time;
-          Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName,
+          Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName, // TODO
             {memory: {role: 'builder'}});
       }
     }
