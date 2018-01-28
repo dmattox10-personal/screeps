@@ -1,6 +1,6 @@
 var cleanup = {
   memory: function() {
-    if (Memory.phase == {"phase":"undefined"}) {
+    if (!Memory.phase) {
       Memory.phase = 0;
       console.log(Memory.phase);
     }
