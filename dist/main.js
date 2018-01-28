@@ -32,16 +32,6 @@ module.exports.loop = function () {
     }
 
 
-    /*
-    var roomName = Game.spawns.Spawn1.room; //TODO HARDCODED
-    Game.rooms[roomName].createConstructionSite(5, 37, STRUCTURE_EXTENSION);
-    Game.rooms[roomName].createConstructionSite(5, 38, STRUCTURE_EXTENSION);
-    Game.rooms[roomName].createConstructionSite(5, 39, STRUCTURE_EXTENSION);
-    Game.rooms[roomName].createConstructionSite(5, 40, STRUCTURE_EXTENSION);
-    Game.rooms[roomName].createConstructionSite(5, 41, STRUCTURE_EXTENSION);
-    */
-
-
 
     // This code needs moved into 'Phase One', similar code written and tested for each phase
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
