@@ -75,7 +75,7 @@ function phaseOne() {
 function phaseTwo(name) {
   for (var x = 0; x < ROOM_WIDTH; x++) {
     for (var y = 0; y < ROOM_HEIGHT; y++) {
-      console.log(Game.rooms[name].lookAt(x, y));
+      console.log(Game.map.getTerrainAt(x, y, name));
     }
   }
   /*
