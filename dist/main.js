@@ -95,8 +95,9 @@ function phaseTwo(name) {
       }
       else {buildN(pattern2)}
     }
-*/
   }
+  */
+
   /*
   for (var i = 0; i < 5; i++) {
   Game.rooms[name].createConstructionSite(5, (i + 37), STRUCTURE_EXTENSION); //TODO HARDCODED
