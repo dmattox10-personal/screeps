@@ -7,12 +7,10 @@ var cleanup = require('cleanup');
 module.exports.loop = function () {
 
     cleanup.memory();
-    var name = this.Game.rooms.name;
-    if (Memory.phase < Game.rooms[name].controller.level) {
-      //phase(Game.rooms[name].controller.level)
-    }
-    for(var name in Game.rooms) {
 
+    for(var name in Game.rooms) {
+      if (Memory.phase < Game.rooms[name].controller.level) {
+        //phase(Game.rooms[name].controller.level)
         switch(Game.rooms[name].controller.level) {
             case 1:
 
@@ -21,7 +19,7 @@ module.exports.loop = function () {
 
             break;
         }
-
+      }
     }
 
 
