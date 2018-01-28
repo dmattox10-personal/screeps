@@ -1,6 +1,9 @@
 var cleanup = {
   memory: function() {
-    console.log(Memory.phase);
+    if (Memory.phase == "undefined") {
+      Memory.phase = 0;
+      console.log(Memory.phase);
+    }
     for(var name in Memory.creeps) {
         if(!Game.creeps[name]) {
             delete Memory.creeps[name];
