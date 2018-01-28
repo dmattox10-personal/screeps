@@ -19,7 +19,7 @@ module.exports.loop = function () {
             phaseOne();
             break;
             case 2: // Put extensions here!
-            phaseTwo();
+            phaseTwo(name);
             break;
             case 3: // THIS is the one that will matter, write code for
 
@@ -72,10 +72,10 @@ function phaseOne() {
   console.log("Welcome to the jungle!");
 }
 
-function phaseTwo() {
+function phaseTwo(name) {
   for (var x = 0; x < ROOM_WIDTH; x++) {
     for (var y = 0; y < ROOM_HEIGHT; y++) {
-      console.log(Game.room.lookAt(x, y));
+      console.log(Game.rooms[name].lookAt(x, y));
     }
   }
   /*
