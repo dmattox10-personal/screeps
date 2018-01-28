@@ -73,13 +73,29 @@ function phaseOne() {
 }
 
 function phaseTwo(name) {
+/*
   var count = 0;
   for (var x = 0; x < ROOM_WIDTH; x++) {
     for (var y = 0; y < ROOM_HEIGHT; y++) {
       console.log(Game.map.getTerrainAt(x, y, name));
       console.log(count);
       count++;
+      map()
+      if(!tryN(pattern2)){
+        if(!tryE(pattern2)) {
+          if(!tryS(pattern2)) {
+            if(!tryW(pattern2)) {
+              console.log("Building Failed!")
+            }
+            else {buildW(pattern2)}
+          }
+          else{buildS(pattern2)}
+        }
+        else{buildE(pattern2)}
+      }
+      else {buildN(pattern2)}
     }
+*/
   }
   /*
   for (var i = 0; i < 5; i++) {
