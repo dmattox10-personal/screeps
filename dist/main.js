@@ -10,12 +10,21 @@ module.exports.loop = function () {
 
     for(var name in Game.rooms) {
       if (Memory.phase < Game.rooms[name].controller.level) {
+        Memory.phase = Game.rooms[name].controller.level;
         //phase(Game.rooms[name].controller.level)
-        switch(Game.rooms[name].controller.level) {
+        switch(Memory.phase) {
             case 1:
 
             break;
-            case 2:
+            case 2: // Put extensions here!
+            var roomName = Game.spawns.Spawn1.room; //TODO HARDCODED
+            Game.rooms[roomName].createConstructionSite(5, 37, STRUCTURE_EXTENSION);
+            Game.rooms[roomName].createConstructionSite(5, 38, STRUCTURE_EXTENSION);
+            Game.rooms[roomName].createConstructionSite(5, 39, STRUCTURE_EXTENSION);
+            Game.rooms[roomName].createConstructionSite(5, 40, STRUCTURE_EXTENSION);
+            Game.rooms[roomName].createConstructionSite(5, 41, STRUCTURE_EXTENSION);
+            break;
+            case 3: // THIS is the one that will matter, write code for
 
             break;
         }
@@ -23,8 +32,14 @@ module.exports.loop = function () {
     }
 
 
-
-
+    /*
+    var roomName = Game.spawns.Spawn1.room; //TODO HARDCODED
+    Game.rooms[roomName].createConstructionSite(5, 37, STRUCTURE_EXTENSION);
+    Game.rooms[roomName].createConstructionSite(5, 38, STRUCTURE_EXTENSION);
+    Game.rooms[roomName].createConstructionSite(5, 39, STRUCTURE_EXTENSION);
+    Game.rooms[roomName].createConstructionSite(5, 40, STRUCTURE_EXTENSION);
+    Game.rooms[roomName].createConstructionSite(5, 41, STRUCTURE_EXTENSION);
+    */
 
 
 

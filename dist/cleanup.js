@@ -2,7 +2,6 @@ var cleanup = {
   memory: function() {
     if (!Memory.phase) {
       Memory.phase = 0;
-      console.log(Memory.phase);
     }
     for(var name in Memory.creeps) {
         if(!Game.creeps[name]) {
