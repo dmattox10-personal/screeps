@@ -9,7 +9,7 @@ module.exports.loop = function () {
 
     cleanup.memory();
 
-    console.log(Game.spawns['Spawn1'].room.room);
+    console.log(Object.values(Game.spawns['Spawn1'].room));
 
     for(var name in Game.rooms) {
       if (Memory.phase < Game.rooms[name].controller.level) {
