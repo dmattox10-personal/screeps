@@ -73,9 +73,12 @@ function phaseOne() {
 }
 
 function phaseTwo(name) {
+  var count = 0;
   for (var x = 0; x < ROOM_WIDTH; x++) {
     for (var y = 0; y < ROOM_HEIGHT; y++) {
       console.log(Game.map.getTerrainAt(x, y, name));
+      console.log(count);
+      count++;
     }
   }
   /*
