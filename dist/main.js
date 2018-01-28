@@ -22,7 +22,7 @@ module.exports.loop = function () {
             var Site = [];
             for (var i = 0; i < 5; i++) {
               Site[i] = Game.rooms.roomName.createConstructionSite(5, (i + 37), STRUCTURE_EXTENSION);
-            builder.build(site[i]);
+            builders.build(site[i]);
           }
             break;
             case 3: // THIS is the one that will matter, write code for
