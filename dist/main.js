@@ -16,9 +16,8 @@ module.exports.loop = function () {
     cleanup.memory();
 
     for(var name in Game.rooms) { // GOOD
-      var room_name = name;
-      if (Memory.phase < Game.rooms[room_name].controller.level) { // GOOD
-        Memory.phase = Game.rooms[room_name].controller.level; // GOOD
+      if (Memory.phase < Game.rooms[name].controller.level) { // GOOD
+        Memory.phase = Game.rooms[name].controller.level; // GOOD
         for(var spawn_name in Game.spawns) {
           var spawn = Game.spawns[spawn_name];
           switch(Memory.phase) { // TODO Map the room, every time we level up!
@@ -26,7 +25,7 @@ module.exports.loop = function () {
             phaseOne();
             break;
             case 2: // Put extensions here!
-            phaseTwo(room_name, spawn_name);
+            phaseTwo(name, spawn);
             break;
             case 3: // THIS is the one that will matter, write code for
 
