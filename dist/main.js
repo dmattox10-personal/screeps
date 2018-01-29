@@ -67,19 +67,20 @@ module.exports.loop = function () {
         }
       }
       */
-      var sources = Game.rooms[name].find(FIND_SOURCES);
+
     // TODO NEED THIS
     //var extensions = Game.spawns.Spawn1.room.find(FIND_MY_STRUCTURES, { // TODO HARDCODED
     //  filter: { structureType: STRUCTURE_EXTENSION }
     //});
     // This code needs moved into 'Phase One', similar code written and tested for each phase
+    var sources = Game.rooms[name].find(FIND_SOURCES);
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
     var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
 
     // Make sure we have enough harvesters, and if so
     if(harvesters.length < ((Memory.phase * 2) - sources.length)) {
-      harvester.spawn(spawn_name, sources.length)
+      harvester.spawn(spawn_name, sources)
     }
     else { // then we start making upgraders
       if (upgraders.length < ((Memory.phase * 2) - sources.length)) {
@@ -112,6 +113,8 @@ module.exports.loop = function () {
 
 function phaseOne() {
   console.log("Welcome to the jungle!");
+  var sources = Game.rooms[name].find(FIND_SOURCES);
+  harvester.spawn(spawn_name, sources)
 }
 
 function phaseTwo(name, spawn_name) {
