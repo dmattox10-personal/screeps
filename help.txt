@@ -1,0 +1,8 @@
+You could also use findPathTo, which gives you an array with the positions along the path, and call createConstructionSite for every point. Calling it every few hundred ticks for all your container-container and spawn-container and sources-container... locations should get you nice 2-3 lane roads over time, as the path avoids the creeps currently on the way.
+I also called it for one location-location road and waited until there were no more road constructionsites. By this, the pathfinding can use the already built roads for its calculations and reuse them.
+Oh, and findPathTo only gives you the path for the room, where the startlocation is, so for a room to room connection you have to call it once for both directions. If there are rooms inbetween, you also have to call it for exit to exit in the mid rooms.
+
+You don't have to wait for GCL for a multi-room environment. I've sent out harvesters to my neighbour rooms, together with claim creeps, so I can reserve the rooms. (without reservation, the sources have only half the energy capacity)
+As a controller looses one claim point per tick and a claim module adds 1, you need two modules (or two creeps with 1) in order to raise the reservation points. Otherwise you lose the reservation, when you creep dies and the next one is still on its way or beeing constructed. I've set it up, so that a new reserver is sent to the controller, when the reservation point drop below 300. Reservation modules might be expensive, but the creeps build pretty fast, as the build time only depends on the number of body parts, not the price. (reservation also needs no energy to work, so no carry parts required)
+
+help
