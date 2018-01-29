@@ -25,7 +25,7 @@ var harvesterV2 = {
     for (var i = 0; i < sources.length; i++) {
       var newName = 'Harvester' + Game.time;
       Game.spawns[spawn_name].spawnCreep([WORK,CARRY,MOVE], newName, // TODO 'Spawn1' HARDCODED
-        {memory: {role: 'harvester'}, {source: i}});
+        {memory: {role: 'harvester', source: i}});
       } // loop
     }// SPAWN
 };
