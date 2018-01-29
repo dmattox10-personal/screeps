@@ -33,6 +33,7 @@ module.exports.loop = function () {
     var extensions = Game.spawns.Spawn1.room.find(FIND_MY_STRUCTURES, {
       filter: { structureType: STRUCTURE_EXTENSION }
     });
+    console.log(JSON.stringify(extensions));
     // This code needs moved into 'Phase One', similar code written and tested for each phase
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
