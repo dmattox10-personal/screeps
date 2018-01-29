@@ -3,7 +3,10 @@
 var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
+//var roleAttendant = require('role.attendant');
+
 var cleanup = require('cleanup');
+
 const ROOM_HEIGHT = 50;
 const ROOM_WIDTH = 50;
 
@@ -28,13 +31,15 @@ module.exports.loop = function () {
       }
     }
 
-
+    var extensions = Game.spawns.Spawn1.room.find(FIND_MY_STRUCTURES, {
+      filter: { structureType: STRUCTURE_EXTENSION }
+    });
 
     // This code needs moved into 'Phase One', similar code written and tested for each phase
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
     var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
-
+    //var attendants = _.filter(Game.creeps, (creep) => creep.memory.role == 'attendant');
     // Make sure we have enough harvesters, and if so
     if(harvesters.length < Memory.phase * 2) {
         var newName = 'Harvester' + Game.time;
