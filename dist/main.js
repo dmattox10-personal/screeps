@@ -97,9 +97,9 @@ module.exports.loop = function () {
     // Code below keeps any units that should exist, at any "phase", acting on their role code
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
+        var source = creep.memory.source;
         if(creep.memory.role == 'harvester') {
-          var source = creep.memory.source;
-          harvester.main(creep, source);
+          harvester.main(creep, sources, source);
         //    roleHarvester.run(creep);
         }
         if(creep.memory.role == 'upgrader') {
