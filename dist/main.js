@@ -34,7 +34,7 @@ module.exports.loop = function () {
         }
       }
     }
-
+    /*
     for(var name in Game.rooms) {
       console.log('Examining ' + room_name + ':');
         for(var spawn_name in Game.spawns) {
@@ -45,7 +45,7 @@ module.exports.loop = function () {
           }
         }
       }
-
+      */
     var extensions = Game.spawns.Spawn1.room.find(FIND_MY_STRUCTURES, { // TODO HARDCODED
       filter: { structureType: STRUCTURE_EXTENSION }
     });
