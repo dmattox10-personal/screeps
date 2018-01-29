@@ -79,16 +79,16 @@ module.exports.loop = function () {
     var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
 
     // Make sure we have enough harvesters, and if so
-    if(harvesters.length < ((Memory.phase * 2) - sources.length) {
+    if(harvesters.length < ((Memory.phase * 2) - sources.length)) {
       harvester.spawn(spawn_name, sources.length)
     }
     else { // then we start making upgraders
-      if(upgraders.length < ((Memory.phase * 2) - sources.length) {
+      if (upgraders.length < ((Memory.phase * 2) - sources.length)) {
           var newName = 'Upgrader' + Game.time;
           Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName, // TODO
               {memory: {role: 'upgrader'}});
             }
-      if (builders.length < ((Memory.phase * 2) - sources.length) {
+      if (builders.length < ((Memory.phase * 2) - sources.length)) {
           var newName = 'Builder' + Game.time;
           Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName, // TODO
             {memory: {role: 'builder'}});
