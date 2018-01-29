@@ -26,7 +26,7 @@ var harvesterV2 = {
       Game.spawns[spawn_name].spawnCreep([WORK,CARRY,MOVE], newName, // TODO 'Spawn1' HARDCODED
         {memory: {role: 'harvester', source: source}});
       } // loop
-
+      
 function creepEmpty(creep) {
   if(creep.carry.energy < creep.carryCapacity) {
     return true;
