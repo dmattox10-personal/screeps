@@ -14,8 +14,8 @@ const ROOM_WIDTH = 50;
 module.exports.loop = function () {
 
     cleanup.memory();
-    console.log(JSON.stringify(Game.spawns[name]));
     for(var name in Game.rooms) { // GOOD
+      console.log(name);
       if (Memory.phase < Game.rooms[name].controller.level) { // GOOD
         Memory.phase = Game.rooms[name].controller.level; // GOOD
         switch(Memory.phase) { // TODO Map the room, every time we level up!
