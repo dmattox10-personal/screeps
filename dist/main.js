@@ -6,15 +6,15 @@ var roleBuilder = require('role.builder');
 
 var cleanup = require('cleanup');
 
-var CURRENT_NAME = "";
-var CURRENT_SPAWN = "";
-
 const extensionsPerLevel = [0, 0, 5, 10, 20, 30, 40, 50, 60];
 
 const ROOM_HEIGHT = 50;
 const ROOM_WIDTH = 50;
 
 module.exports.loop = function () {
+
+  var CURRENT_NAME = "";
+  var CURRENT_SPAWN = "";
 
     cleanup.memory();
 
