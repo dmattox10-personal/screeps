@@ -13,17 +13,14 @@ const ROOM_WIDTH = 50;
 
 module.exports.loop = function () {
 
-  var CURRENT_NAME = "";
-  var CURRENT_SPAWN = "";
-
     cleanup.memory();
 
     for(var name in Game.rooms) { // GOOD
       if (Memory.phase < Game.rooms[name].controller.level) { // GOOD
         Memory.phase = Game.rooms[name].controller.level; // GOOD
-        CURRENT_NAME = name;
+        global CURRENT_NAME = name;
         for(var spawn_name in Game.spawns) {
-          CURRENT_SPAWN = spawn_name;
+          global CURRENT_SPAWN = spawn_name;
           switch(Memory.phase) { // TODO Map the room, every time we level up!
             case 1:
             phaseOne();
