@@ -80,7 +80,10 @@ module.exports.loop = function () {
 
     // Make sure we have enough harvesters, and if so
     if(harvesters.length < ((Memory.phase * 2) - sources.length)) {
-      harvester.spawn(spawn_name, sources)
+      for (var i = 0; i < sources.length; i++) {
+        harvester.spawn(spawn_name, i)
+        console.log(i);
+      }
     }
     else { // then we start making upgraders
 

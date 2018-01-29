@@ -21,14 +21,10 @@ var harvesterV2 = {
     } // ELSE
 
   }, // MAIN
-  spawn: function(spawn_name, sources) {
-    for (var i = 0; i < sources.length; i++) {
+  spawn: function(spawn_name, source) {
       var newName = 'Harvester' + Game.time;
-      console.log("Spawning new creep with name " + newName);
-      console.log("There are " + sources.length + " sources in this room");
-      console.log("This harvester will collect from source " +i);
       Game.spawns[spawn_name].spawnCreep([WORK,CARRY,MOVE], newName, // TODO 'Spawn1' HARDCODED
-        {memory: {role: 'harvester', source: i}});
+        {memory: {role: 'harvester', source: source}});
       } // loop
     }// SPAWN
 };
