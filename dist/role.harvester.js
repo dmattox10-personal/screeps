@@ -1,3 +1,5 @@
+// TODO spawn two creeps, for every room level, for every energy source!
+// TODO make harvesters also fill up extensions.
 var roleHarvester = {
 
     /** @param {Creep} creep **/
