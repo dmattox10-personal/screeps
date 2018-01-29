@@ -68,7 +68,6 @@ module.exports.loop = function () {
       }
       */
       var sources = Game.rooms[name].find(FIND_SOURCES);
-      console.log(sources.length);
     // TODO NEED THIS
     //var extensions = Game.spawns.Spawn1.room.find(FIND_MY_STRUCTURES, { // TODO HARDCODED
     //  filter: { structureType: STRUCTURE_EXTENSION }
