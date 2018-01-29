@@ -6,6 +6,9 @@ var roleBuilder = require('role.builder');
 
 var cleanup = require('cleanup');
 
+var CURRENT_NAME = "";
+var CURRENT_SPAWN = "";
+
 const extensionsPerLevel = [0, 0, 5, 10, 20, 30, 40, 50, 60];
 
 const ROOM_HEIGHT = 50;
@@ -18,8 +21,9 @@ module.exports.loop = function () {
     for(var name in Game.rooms) { // GOOD
       if (Memory.phase < Game.rooms[name].controller.level) { // GOOD
         Memory.phase = Game.rooms[name].controller.level; // GOOD
+        CURRENT_NAME = name;
         for(var spawn_name in Game.spawns) {
-          var spawn = Game.spawns[spawn_name];
+          CURRENT_SPAWN = spawn_name;
           switch(Memory.phase) { // TODO Map the room, every time we level up!
             case 1:
             phaseOne();
@@ -49,6 +53,8 @@ module.exports.loop = function () {
     var extensions = Game.spawns.Spawn1.room.find(FIND_MY_STRUCTURES, { // TODO HARDCODED
       filter: { structureType: STRUCTURE_EXTENSION }
     });
+    console.log(CURRENT_NAME);
+    console.log(CURRENT_SPAWN);
     // This code needs moved into 'Phase One', similar code written and tested for each phase
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
