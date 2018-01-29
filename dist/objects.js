@@ -34,3 +34,4 @@
   },
 ]
 //Game.room
+{"Spawn1":{"room":{"name":"E35S7","energyAvailable":36,"energyCapacityAvailable":550,"visual":{"roomName":"E35S7"}},"pos":{"x":7,"y":35,"roomName":"E35S7"},"id":"5a6cffb4ff173a0d400fe20e","name":"Spawn1","energy":36,"energyCapacity":300,"spawning":{"name":"Builder3047227","needTime":9,"remainingTime":4},"owner":{"username":"dmattox10"},"my":true,"hits":5000,"hitsMax":5000,"structureType":"spawn"}}

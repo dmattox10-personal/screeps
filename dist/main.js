@@ -67,9 +67,9 @@ module.exports.loop = function () {
 
     // Make sure we have enough harvesters, and if so
     if(harvesters.length < Memory.phase * 2) {
-        var newName = 'Harvester' + Game.time;
-        Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName, // TODO 'Spawn1' HARDCODED
-            {memory: {role: 'harvester'}});
+      var newName = 'Harvester' + Game.time;
+      Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName, // TODO 'Spawn1' HARDCODED
+          {memory: {role: 'harvester'}});
     }
     else { // then we start making upgraders
       if(upgraders.length < Memory.phase * 2) {
@@ -86,6 +86,7 @@ module.exports.loop = function () {
     // Code below keeps any units that should exist, at any "phase", acting on their role code
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
+        console.log(creep);
         if(creep.memory.role == 'harvester') {
             roleHarvester.run(creep);
         }
