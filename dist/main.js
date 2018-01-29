@@ -113,8 +113,6 @@ module.exports.loop = function () {
 
 function phaseOne() {
   console.log("Welcome to the jungle!");
-  var sources = Game.rooms[name].find(FIND_SOURCES);
-  harvester.spawn(spawn_name, sources)
 }
 
 function phaseTwo(name, spawn_name) {
