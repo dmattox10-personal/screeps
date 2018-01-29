@@ -15,7 +15,7 @@ module.exports.loop = function () {
 
     cleanup.memory();
     for(var name in Game.rooms) { // GOOD
-      console.log(Game.rooms[name].spawn);
+      console.log(JSON.stringify(Game.rooms[name]));
       if (Memory.phase < Game.rooms[name].controller.level) { // GOOD
         Memory.phase = Game.rooms[name].controller.level; // GOOD
         switch(Memory.phase) { // TODO Map the room, every time we level up!
