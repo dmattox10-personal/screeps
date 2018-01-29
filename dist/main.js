@@ -14,7 +14,7 @@ const ROOM_WIDTH = 50;
 module.exports.loop = function () {
 
     cleanup.memory();
-    console.log(JSON.stringify(Game.spawns));
+    console.log(JSON.stringify(Game.spawns.name));
     for(var name in Game.rooms) { // GOOD
       if (Memory.phase < Game.rooms[name].controller.level) { // GOOD
         Memory.phase = Game.rooms[name].controller.level; // GOOD
