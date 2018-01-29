@@ -35,3 +35,49 @@
 ]
 //Game.room
 {"Spawn1":{"room":{"name":"E35S7","energyAvailable":36,"energyCapacityAvailable":550,"visual":{"roomName":"E35S7"}},"pos":{"x":7,"y":35,"roomName":"E35S7"},"id":"5a6cffb4ff173a0d400fe20e","name":"Spawn1","energy":36,"energyCapacity":300,"spawning":{"name":"Builder3047227","needTime":9,"remainingTime":4},"owner":{"username":"dmattox10"},"my":true,"hits":5000,"hitsMax":5000,"structureType":"spawn"}}
+
+//creep
+{"room":
+  {
+    "name":"E35S7",
+    "energyAvailable":177,
+    "energyCapacityAvailable":550,
+    "visual":{"roomName":"E35S7"}
+  },
+    "pos":
+    {"x":17,"y":28,
+    "roomName":"E35S7"
+  },
+  "id":"5a6f8233a3c24a71d9b1a596",
+  "name":"Upgrader3049403",
+  "body":
+  [
+    {
+      "type":"work",
+      "hits":100
+    },
+    {
+      "type":"carry",
+      "hits":100
+    },
+    {
+      "type":"move",
+      "hits":100
+    }
+  ],
+  "my":true,
+  "owner":
+    {
+      "username":"dmattox10"
+    },
+  "spawning":false,
+  "ticksToLive":981,
+  "carryCapacity":50,
+  "carry":
+    {
+      "energy":0
+    },
+  "fatigue":0,
+  "hits":300,
+  "hitsMax":300
+}

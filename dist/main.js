@@ -3,6 +3,7 @@
 var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
+var harvester = require('harvesterV2');
 
 var cleanup = require('cleanup');
 
@@ -67,9 +68,7 @@ module.exports.loop = function () {
 
     // Make sure we have enough harvesters, and if so
     if(harvesters.length < Memory.phase * 2) {
-      var newName = 'Harvester' + Game.time;
-      Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName, // TODO 'Spawn1' HARDCODED
-          {memory: {role: 'harvester'}});
+      harvesterV2.spawn(spawn_name)
     }
     else { // then we start making upgraders
       if(upgraders.length < Memory.phase * 2) {
@@ -86,9 +85,9 @@ module.exports.loop = function () {
     // Code below keeps any units that should exist, at any "phase", acting on their role code
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
-        console.log(JSON.stringify(creep));
         if(creep.memory.role == 'harvester') {
-            roleHarvester.run(creep);
+          harvester.main(creep);
+        //    roleHarvester.run(creep);
         }
         if(creep.memory.role == 'upgrader') {
             roleUpgrader.run(creep);
@@ -103,8 +102,8 @@ function phaseOne() {
   console.log("Welcome to the jungle!");
 }
 
-function phaseTwo(room_name, spawn_name) {
-  console.log(room_name);
+function phaseTwo(name, spawn_name) {
+  console.log(name);
   console.log(spawn_name);
 /*
   var count = 0;
@@ -136,6 +135,11 @@ function phaseTwo(room_name, spawn_name) {
   Game.rooms[name].createConstructionSite(5, (i + 37), STRUCTURE_EXTENSION); //TODO HARDCODED
   }
   */
+}
+
+function phaseThree(name, spawn) {
+  console.log(name);
+  console.log(spawn_name);
 }
 /*
 // DEFENSE CODE ================================================================
