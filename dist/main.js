@@ -6,13 +6,15 @@ var roleBuilder = require('role.builder');
 
 var cleanup = require('cleanup');
 
+const extensionsPerLevel = [0, 0, 5, 10, 20, 30, 40, 50, 60];
+
 const ROOM_HEIGHT = 50;
 const ROOM_WIDTH = 50;
 
 module.exports.loop = function () {
 
     cleanup.memory();
-
+    console.log(Game.rooms);
     for(var name in Game.rooms) { // GOOD
       if (Memory.phase < Game.rooms[name].controller.level) { // GOOD
         Memory.phase = Game.rooms[name].controller.level; // GOOD
@@ -30,7 +32,7 @@ module.exports.loop = function () {
       }
     }
 
-    var extensions = Game.spawns.Spawn1.room.find(FIND_MY_STRUCTURES, {
+    var extensions = Game.spawns.Spawn1.room.find(FIND_MY_STRUCTURES, { // TODO HARDCODED
       filter: { structureType: STRUCTURE_EXTENSION }
     });
     // This code needs moved into 'Phase One', similar code written and tested for each phase

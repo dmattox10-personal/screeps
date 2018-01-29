@@ -1,0 +1,36 @@
+// EXTENSIONS
+[
+  {"room":
+    {"name":"E35S7",
+    "energyAvailable":178,
+    "energyCapacityAvailable":550,
+    "visual":{"roomName":"E35S7"}},
+    "pos":{"x":5,"y":37,
+    "roomName":"E35S7"},
+    "id":"5a6d66c82c4d361a1fafab16",
+    "energy":0,
+    "energyCapacity":50,
+    "owner":{"username":"dmattox10"},
+    "my":true,
+    "hits":1000,
+    "hitsMax":1000,
+    "structureType":"extension"
+  },
+  {"room":
+    {"name":"E35S7",
+    "energyAvailable":178,
+    "energyCapacityAvailable":550,
+    "visual":{"roomName":"E35S7"}},
+    "pos":{"x":5,"y":38,
+    "roomName":"E35S7"},
+    "id":"5a6d8d5cff72056296b4f1c1",
+    "energy":0,
+    "energyCapacity":50,
+    "owner":{"username":"dmattox10"},
+    "my":true,
+    "hits":1000,
+    "hitsMax":1000,
+    "structureType":"extension"
+  },
+]
+//Game.room
