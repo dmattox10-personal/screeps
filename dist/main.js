@@ -15,7 +15,8 @@ module.exports.loop = function () {
 
     cleanup.memory();
 
-    for(var room_name in Game.rooms) { // GOOD
+    for(var name in Game.rooms) { // GOOD
+      var room_name = name;
       if (Memory.phase < Game.rooms[room_name].controller.level) { // GOOD
         Memory.phase = Game.rooms[room_name].controller.level; // GOOD
         for(var spawn_name in Game.spawns) {
