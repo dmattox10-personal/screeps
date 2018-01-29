@@ -36,7 +36,7 @@ module.exports.loop = function () {
       } // DO STUFF WITH SPAWN HERE
     } // DO STUFF WITH ONLY ROOM NAME HERE
     // LOOP CONTINUES HERE
-
+    /*
     // These are for spawning common creeps
     for(var name in Game.rooms) {
       for(var spawn_name in Game.spawns) {
@@ -45,7 +45,7 @@ module.exports.loop = function () {
 
       } // DO STUFF WITH SPAWN HERE
     } // DO STUFF WITH ONLY ROOM NAME HERE
-
+    */
 
 
 
@@ -98,7 +98,8 @@ module.exports.loop = function () {
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
         if(creep.memory.role == 'harvester') {
-          harvester.main(creep);
+          var source = creep.memory.source;
+          harvester.main(creep, source);
         //    roleHarvester.run(creep);
         }
         if(creep.memory.role == 'upgrader') {

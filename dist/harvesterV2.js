@@ -1,9 +1,8 @@
 var harvesterV2 = {
-  main: function(creep) {
+  main: function(creep, sources, source) {
     if(creepEmpty(creep)) {
-      var sources = creep.room.find(FIND_SOURCES);
-      if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
-          creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
+      if(creep.harvest(sources[source]) == ERR_NOT_IN_RANGE) {
+          creep.moveTo(sources[source], {visualizePathStyle: {stroke: '#ffaa00'}});
       }
     } // IF
     else {
@@ -22,11 +21,13 @@ var harvesterV2 = {
     } // ELSE
 
   }, // MAIN
-  spawn: function(spawn_name) {
-    var newName = 'Harvester' + Game.time;
-    Game.spawns[spawn_name].spawnCreep([WORK,CARRY,MOVE], newName, // TODO 'Spawn1' HARDCODED
-        {memory: {role: 'harvester'}});
-  } // SPAWN
+  spawn: function(spawn_name, sources) {
+    for (var i = 0; i < sources.length; i++) {
+      var newName = 'Harvester' + Game.time;
+      Game.spawns[spawn_name].spawnCreep([WORK,CARRY,MOVE], newName, // TODO 'Spawn1' HARDCODED
+        {memory: {role: 'harvester'}, {source: i}});
+      } // loop
+    }// SPAWN
 };
 
 function creepEmpty(creep) {
