@@ -22,7 +22,7 @@ var harvesterV2 = {
     } // ELSE
 
   }, // MAIN
-  spawn: function() {
+  spawn: function(spawn_name) {
     var newName = 'Harvester' + Game.time;
     Game.spawns[spawn_name].spawnCreep([WORK,CARRY,MOVE], newName, // TODO 'Spawn1' HARDCODED
         {memory: {role: 'harvester'}});
