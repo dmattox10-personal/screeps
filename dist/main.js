@@ -14,23 +14,37 @@ const ROOM_WIDTH = 50;
 module.exports.loop = function () {
 
     cleanup.memory();
-    for(var name in Game.rooms) { // GOOD
-      console.log(Object.keys(Game.rooms[0]));
-      if (Memory.phase < Game.rooms[name].controller.level) { // GOOD
-        Memory.phase = Game.rooms[name].controller.level; // GOOD
-        switch(Memory.phase) { // TODO Map the room, every time we level up!
+
+    for(var room_name in Game.rooms) { // GOOD
+      if (Memory.phase < Game.rooms[room_name].controller.level) { // GOOD
+        Memory.phase = Game.rooms[room_name].controller.level; // GOOD
+        for(var spawn_name in Game.spawns) {
+          var spawn = Game.spawns[spawn_name];
+          switch(Memory.phase) { // TODO Map the room, every time we level up!
             case 1:
             phaseOne();
             break;
             case 2: // Put extensions here!
-            phaseTwo(name);
+            phaseTwo(room_name, spawn_name);
             break;
             case 3: // THIS is the one that will matter, write code for
 
             break;
+          }
         }
       }
     }
+
+    for(var name in Game.rooms) {
+      console.log('Examining ' + room_name + ':');
+        for(var spawn_name in Game.spawns) {
+          var spawn = Game.spawns[spawn_name];
+          if(Object.is(spawn.room, room)) {
+            console.log('Examining ' + spawn_name + ':');
+            console.log('Energy Available: ' + room.energyAvailable);
+          }
+        }
+      }
 
     var extensions = Game.spawns.Spawn1.room.find(FIND_MY_STRUCTURES, { // TODO HARDCODED
       filter: { structureType: STRUCTURE_EXTENSION }
@@ -77,7 +91,9 @@ function phaseOne() {
   console.log("Welcome to the jungle!");
 }
 
-function phaseTwo(name) {
+function phaseTwo(room_name, spawn_name) {
+  console.log(room_name);
+  console.log(spawn_name);
 /*
   var count = 0;
   for (var x = 0; x < ROOM_WIDTH; x++) {
