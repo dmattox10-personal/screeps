@@ -68,7 +68,7 @@ module.exports.loop = function () {
 
     // Make sure we have enough harvesters, and if so
     if(harvesters.length < Memory.phase * 2) {
-      harvesterV2.spawn(spawn_name)
+      harvester.spawn(spawn_name)
     }
     else { // then we start making upgraders
       if(upgraders.length < Memory.phase * 2) {
