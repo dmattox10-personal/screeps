@@ -83,7 +83,9 @@ module.exports.loop = function () {
       harvester.spawn(spawn_name, sources)
     }
     else { // then we start making upgraders
+
       if (upgraders.length < ((Memory.phase * 2) - sources.length)) {
+
           var newName = 'Upgrader' + Game.time;
           Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName, // TODO
               {memory: {role: 'upgrader'}});
