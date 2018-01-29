@@ -15,6 +15,7 @@ module.exports.loop = function () {
 
     cleanup.memory();
 
+    // These are "Run Once" conditions:
     for(var name in Game.rooms) { // GOOD
       for(var spawn_name in Game.spawns) {
         if (Memory.phase < Game.rooms[name].controller.level) {
@@ -31,10 +32,19 @@ module.exports.loop = function () {
           }
         }
         Memory.phase = Game.rooms[name].controller.level
+
       } // DO STUFF WITH SPAWN HERE
     } // DO STUFF WITH ONLY ROOM NAME HERE
     // LOOP CONTINUES HERE
 
+    // These are for spawning common creeps
+    for(var name in Game.rooms) {
+      for(var spawn_name in Game.spawns) {
+        var sources = Game.rooms[name].find(FIND_SOURCES);
+        console.log(sources.length);
+
+      } // DO STUFF WITH SPAWN HERE
+    } // DO STUFF WITH ONLY ROOM NAME HERE
 
 
 
@@ -57,25 +67,28 @@ module.exports.loop = function () {
         }
       }
       */
-    var extensions = Game.spawns.Spawn1.room.find(FIND_MY_STRUCTURES, { // TODO HARDCODED
-      filter: { structureType: STRUCTURE_EXTENSION }
-    });
+      var sources = Game.rooms[name].find(FIND_SOURCES);
+      console.log(sources.length);
+    // TODO NEED THIS
+    //var extensions = Game.spawns.Spawn1.room.find(FIND_MY_STRUCTURES, { // TODO HARDCODED
+    //  filter: { structureType: STRUCTURE_EXTENSION }
+    //});
     // This code needs moved into 'Phase One', similar code written and tested for each phase
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
     var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
 
     // Make sure we have enough harvesters, and if so
-    if(harvesters.length < Memory.phase * 2) {
-      harvester.spawn(spawn_name)
+    if(harvesters.length < ((Memory.phase * 2) - sources.length) {
+      harvester.spawn(spawn_name, sources.length)
     }
     else { // then we start making upgraders
-      if(upgraders.length < Memory.phase * 2) {
+      if(upgraders.length < ((Memory.phase * 2) - sources.length) {
           var newName = 'Upgrader' + Game.time;
           Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName, // TODO
               {memory: {role: 'upgrader'}});
             }
-      if (builders.length < Memory.phase * 2) {
+      if (builders.length < ((Memory.phase * 2) - sources.length) {
           var newName = 'Builder' + Game.time;
           Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName, // TODO
             {memory: {role: 'builder'}});
