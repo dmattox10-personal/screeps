@@ -67,7 +67,7 @@ module.exports.loop = function () {
         }
       }
       */
-
+      var sources = Game.rooms[name].find(FIND_SOURCES);
     // TODO NEED THIS
     //var extensions = Game.spawns.Spawn1.room.find(FIND_MY_STRUCTURES, { // TODO HARDCODED
     //  filter: { structureType: STRUCTURE_EXTENSION }
@@ -79,7 +79,6 @@ module.exports.loop = function () {
 
     // Make sure we have enough harvesters, and if so
     if(harvesters.length < (Memory.phase * 2)) {
-    var sources = Game.rooms[name].find(FIND_SOURCES);
         harvester.spawn(spawn_name, sources.length)
     }
     else { // then we start making upgraders
