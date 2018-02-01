@@ -119,6 +119,10 @@ function phaseOne() {
 function phaseTwo(name, spawn_name) {
   console.log(name);
   console.log(spawn_name);
+  // IF number of extensions is lest than extensions
+  // per level, set the level down again, so that buildE
+  // runs again! Use code from harvester to find extensions
+  
 /*
   var count = 0;
   for (var x = 0; x < ROOM_WIDTH; x++) {
