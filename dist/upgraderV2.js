@@ -14,7 +14,7 @@ var upgraderV2 = {
   },
   spawn: function(spawn_name, length) {
     var newName = 'Upgrader' + Game.time;
-    Game.spawns[spawnName].spawnCreep([WORK,CARRY,MOVE], newName, // TODO
+    Game.spawns[spawn_name].spawnCreep([WORK,CARRY,MOVE], newName, // TODO
         {memory: {role: 'upgrader', source: (Math.floor(Math.random() * length))}});
   }
 
