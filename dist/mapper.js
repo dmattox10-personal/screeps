@@ -22,7 +22,7 @@ var mapper = {
         } // 'y' loop
       } // 'x' loop
       for (var i = 0; i < Memory.map.name.length; i++) {
-        console.log(Memory.map.name[i].terrain);
+        console.log(Memory.map.name[i].terrain.type);
       }
     }, // createMap
   getMap: function(name) {
