@@ -69,8 +69,6 @@ module.exports.loop = function () {
         }
       }
       */
-      var sources = Game.rooms[name].find(FIND_SOURCES);
-      mapper.createMap(name, spawn_name, sources);
     // TODO NEED THIS
     //var extensions = Game.spawns.Spawn1.room.find(FIND_MY_STRUCTURES, { // TODO HARDCODED
     //  filter: { structureType: STRUCTURE_EXTENSION }
@@ -82,14 +80,17 @@ module.exports.loop = function () {
 
     // Make sure we have enough harvesters, and if so
     if(harvesters.length < (Memory.phase * 2)) {
-        harvester.spawn(spawn_name, sources.length)
+      var sources = Game.rooms[name].find(FIND_SOURCES);
+        harvester.spawn(spawn_name, sources.length) // TODO spawn_name will eventually be more than one!
     }
     else { // then we start making upgraders
 
       if (upgraders.length < (Memory.phase * 2)) {
-          upgrader.spawn(spawn_name, sources.length)
+        var sources = Game.rooms[name].find(FIND_SOURCES);
+          upgrader.spawn(spawn_name, sources.length) // TODO spawn_name will eventually be more than one!
             }
       if (builders.length < (Memory.phase)) {
+        var sources = Game.rooms[name].find(FIND_SOURCES);
           var newName = 'Builder' + Game.time;
           Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName, // TODO
             {memory: {role: 'builder'}});
@@ -101,22 +102,23 @@ module.exports.loop = function () {
         var source = creep.memory.source;
         if(creep.memory.role == 'harvester') {
           harvester.main(creep, sources, source);
-        //    roleHarvester.run(creep);
         }
         if(creep.memory.role == 'upgrader') {
-            upgrader.main(creep, sources, source);
+          upgrader.main(creep, sources, source);
         }
-        if(creep.memory.role == 'builder') {
-            roleBuilder.run(creep);
+        if(creep.memory.role == 'builder') { // TODO fix this one next
+          roleBuilder.run(creep);
         }
     }
 }
 
 function phaseOne() {
   console.log("Welcome to the jungle!");
+  var sources = Game.rooms[name].find(FIND_SOURCES);
+  mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, name, sources); // TODO spawn_name will eventually be more than one!
 }
 
-function phaseTwo(name, spawn_name) {
+function phaseTwo(name, spawn_name) { // TODO spawn_name will eventually be more than one!
   console.log(name);
   console.log(spawn_name);
   // IF number of extensions is lest than extensions
