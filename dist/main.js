@@ -101,7 +101,7 @@ module.exports.loop = function () {
         //    roleHarvester.run(creep);
         }
         if(creep.memory.role == 'upgrader') {
-            roleUpgrader.run(creep);
+            upgrader.main(creep, sources, source);
         }
         if(creep.memory.role == 'builder') {
             roleBuilder.run(creep);
