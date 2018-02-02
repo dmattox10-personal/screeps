@@ -4,6 +4,8 @@ var mapper = {
     var terrain = {};
     Memory.map = {};
     Memory.map.name = name;
+    console.log(Memory.map.length);
+    console.log(Memory.map.name);
       for (var x = 0; x < ROOM_WIDTH; x++) {
         for (var y = 0; y < ROOM_HEIGHT; y++) {
           //console.log(Game.map.getTerrainAt(x, y, name));
