@@ -21,6 +21,7 @@ var mapper = {
           };
         } // 'y' loop
       } // 'x' loop
+      console.table(Memory.map.name);
     }, // createMap
   getMap: function(name) {
 
