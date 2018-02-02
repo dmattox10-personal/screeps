@@ -1,8 +1,10 @@
 // MAIN WITH MEMORY MANAGEMENT
+// TODO move Memory.phase control to phase action logic
 
 var upgrader = require('upgraderV2');
 var roleBuilder = require('role.builder');
 var harvester = require('harvesterV2');
+var mapper = require('mapper');
 
 var cleanup = require('cleanup');
 
@@ -31,7 +33,7 @@ module.exports.loop = function () {
             break;
           }
         }
-        Memory.phase = Game.rooms[name].controller.level
+        Memory.phase = Game.rooms[name].controller.level // TODO MOVE THIS TO PHASE LOGIC IN CASE WE NEED TO RESET!!!
 
       } // DO STUFF WITH SPAWN HERE
     } // DO STUFF WITH ONLY ROOM NAME HERE
@@ -68,6 +70,7 @@ module.exports.loop = function () {
       }
       */
       var sources = Game.rooms[name].find(FIND_SOURCES);
+      mapper.createMap(name, spawn_name, sources);
     // TODO NEED THIS
     //var extensions = Game.spawns.Spawn1.room.find(FIND_MY_STRUCTURES, { // TODO HARDCODED
     //  filter: { structureType: STRUCTURE_EXTENSION }
