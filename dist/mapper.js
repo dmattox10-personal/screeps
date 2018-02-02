@@ -1,20 +1,20 @@
 var mapper = {
 
   createMap: function(ROOM_WIDTH, ROOM_HEIGHT, name, sources) {
-    var map = {};
+    Memory.map = {};
     Memory.map.name = name;
       for (var x = 0; x < ROOM_WIDTH; x++) {
         for (var y = 0; y < ROOM_HEIGHT; y++) {
           //console.log(Game.map.getTerrainAt(x, y, name));
           let tile = Game.map.getTerrainAt(x, y, name);
-          Memory.map.name[Memory.map.length + 1] = {
+          Memory.map.name.terrain[Memory.map.length + 1] = {
             type: tile,
             pos:
             {
               x:x,
               y:y
             }
-          }; 
+          };
         } // 'y' loop
       } // 'x' loop
     }, // createMap
