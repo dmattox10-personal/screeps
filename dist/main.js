@@ -80,20 +80,17 @@ module.exports.loop = function () {
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
     var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
-
+    var sources = Game.rooms[name].find(FIND_SOURCES);
     // Make sure we have enough harvesters, and if so
     if(harvesters.length < (Memory.phase * 2)) {
-      var sources = Game.rooms[name].find(FIND_SOURCES);
         harvester.spawn(spawn_name, sources.length) // TODO spawn_name will eventually be more than one!
     }
     else { // then we start making upgraders
 
       if (upgraders.length < (Memory.phase * 2)) {
-        var sources = Game.rooms[name].find(FIND_SOURCES);
           upgrader.spawn(spawn_name, sources.length) // TODO spawn_name will eventually be more than one!
             }
       if (builders.length < (Memory.phase)) {
-        var sources = Game.rooms[name].find(FIND_SOURCES);
           var newName = 'Builder' + Game.time;
           Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName, // TODO
             {memory: {role: 'builder'}});
@@ -101,7 +98,6 @@ module.exports.loop = function () {
     }
     // Code below keeps any units that should exist, at any "phase", acting on their role code
     for(var name in Game.creeps) {
-      var sources = Game.rooms[name].find(FIND_SOURCES);
         var creep = Game.creeps[name];
         var source = creep.memory.source;
         if(creep.memory.role == 'harvester') {
