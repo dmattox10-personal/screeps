@@ -101,6 +101,7 @@ module.exports.loop = function () {
     }
     // Code below keeps any units that should exist, at any "phase", acting on their role code
     for(var name in Game.creeps) {
+      var sources = Game.rooms[name].find(FIND_SOURCES);
         var creep = Game.creeps[name];
         var source = creep.memory.source;
         if(creep.memory.role == 'harvester') {
