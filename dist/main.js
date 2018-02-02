@@ -23,7 +23,7 @@ module.exports.loop = function () {
         if (Memory.phase < Game.rooms[name].controller.level) {
           switch(Memory.phase) { // TODO Map the room, every time we level up!
             case 1:
-            phaseOne(name, spawn_name);
+            phaseOne(name);
             break;
             case 2: // Put extensions here!
             phaseTwo(name, spawn_name);
@@ -112,7 +112,7 @@ module.exports.loop = function () {
     }
 }
 
-function phaseOne() {
+function phaseOne(name) {
   console.log("Welcome to the jungle!");
   var sources = Game.rooms[name].find(FIND_SOURCES);
   mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, name, sources); // TODO spawn_name will eventually be more than one!
