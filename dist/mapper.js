@@ -21,7 +21,9 @@ var mapper = {
           };
         } // 'y' loop
       } // 'x' loop
-      console.table(Memory.map.name);
+      for (var i = 0; i < Memory.map.name.length; i++) {
+        console.log(Memory.map.name[i]);
+      }
     }, // createMap
   getMap: function(name) {
 
