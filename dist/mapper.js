@@ -26,8 +26,8 @@ if (getMap(room, x,y) == clear) {
 }
 */
 
-checkAdjacent(x, y) {
-  var
+function checkAdjacent(x, y) {
+
 }
 
 
