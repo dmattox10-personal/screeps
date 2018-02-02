@@ -1,6 +1,7 @@
 var mapper = {
 
   createMap: function(ROOM_WIDTH, ROOM_HEIGHT, name, sources) {
+    var terrain = {};
     Memory.map = {};
     Memory.map.name = name;
       for (var x = 0; x < ROOM_WIDTH; x++) {
