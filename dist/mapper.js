@@ -15,4 +15,4 @@ var mapper = {
 
 
 
-module.exports = harvesterV2;
+module.exports = mapper;
