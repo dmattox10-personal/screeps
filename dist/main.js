@@ -22,6 +22,9 @@ module.exports.loop = function () {
       for(var spawn_name in Game.spawns) {
         if (Memory.phase < Game.rooms[name].controller.level) {
           switch(Memory.phase) { // TODO Map the room, every time we level up!
+            case 0:
+            begin(name);
+            break;
             case 1:
             phaseOne(name);
             break;
@@ -112,15 +115,14 @@ module.exports.loop = function () {
     }
 }
 
-function phaseOne(name) {
+function begin(name) {
   console.log("Welcome to the jungle!");
   var sources = Game.rooms[name].find(FIND_SOURCES);
   mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, name, sources); // TODO spawn_name will eventually be more than one!
 }
 
-function phaseTwo(name, spawn_name) { // TODO spawn_name will eventually be more than one!
+function phaseOne(name) { // TODO spawn_name will eventually be more than one!
   console.log(name);
-  console.log(spawn_name);
   // IF number of extensions is lest than extensions
   // per level, set the level down again, so that buildE
   // runs again! Use code from harvester to find extensions
@@ -155,6 +157,10 @@ function phaseTwo(name, spawn_name) { // TODO spawn_name will eventually be more
   Game.rooms[name].createConstructionSite(5, (i + 37), STRUCTURE_EXTENSION); //TODO HARDCODED
   }
   */
+}
+
+function phaseTwo(name) {
+  console.log(name);
 }
 
 function phaseThree(name, spawn) {
