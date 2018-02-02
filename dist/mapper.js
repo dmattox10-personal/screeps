@@ -11,7 +11,7 @@ var mapper = {
         for (var y = 0; y < ROOM_HEIGHT; y++) {
           //console.log(Game.map.getTerrainAt(x, y, name));
           let tile = Game.map.getTerrainAt(x, y, name);
-          Memory.map.name.terrain[length + 1] = {
+          Memory.map.name[length + 1].terrain = {
             "type": tile,
             "pos":
             {
