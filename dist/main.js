@@ -1,6 +1,6 @@
 // MAIN WITH MEMORY MANAGEMENT
 
-var roleUpgrader = require('role.upgrader');
+var upgrader = require('upgraderV2');
 var roleBuilder = require('role.builder');
 var harvester = require('harvesterV2');
 
@@ -84,12 +84,9 @@ module.exports.loop = function () {
     else { // then we start making upgraders
 
       if (upgraders.length < (Memory.phase * 2)) {
-
-          var newName = 'Upgrader' + Game.time;
-          Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName, // TODO
-              {memory: {role: 'upgrader'}});
+          upgrader.spawn(spawn_name, sources.length)
             }
-      if (builders.length < (Memory.phase * 2)) {
+      if (builders.length < (Memory.phase)) {
           var newName = 'Builder' + Game.time;
           Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName, // TODO
             {memory: {role: 'builder'}});
@@ -122,7 +119,7 @@ function phaseTwo(name, spawn_name) {
   // IF number of extensions is lest than extensions
   // per level, set the level down again, so that buildE
   // runs again! Use code from harvester to find extensions
-  
+
 /*
   var count = 0;
   for (var x = 0; x < ROOM_WIDTH; x++) {
