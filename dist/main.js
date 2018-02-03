@@ -82,7 +82,7 @@ module.exports.loop = function () {
     var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
     var sources = Game.rooms[name].find(FIND_SOURCES);
     // Make sure we have enough harvesters, and if so
-    if(harvesters.length < (Memory.phase * 2)) {
+    if(harvesters.length < Memory.phase) {
         harvester.spawn(spawn_name, sources.length) // TODO spawn_name will eventually be more than one!
     }
     else { // then we start making upgraders
