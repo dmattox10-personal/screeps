@@ -1,24 +1,35 @@
 var mapper = {
 
   createMap: function(ROOM_WIDTH, ROOM_HEIGHT, name, sources) {
-    Memory.map = [];
+    // Memory.map.name.sites // Gonna need this
     Memory.map.name = name;
-    Memory.map.tiles = {};
-    var length = Memory.map.length;
-    console.log(JSON.stringify(Memory.map));
-    console.log(Memory.map.name);
+    Memory.map.name.build = [];
       for (var x = 0; x < ROOM_WIDTH; x++) {
         for (var y = 0; y < ROOM_HEIGHT; y++) {
           //console.log(Game.map.getTerrainAt(x, y, name));
           let tile = Game.map.getTerrainAt(x, y, name);
-          Memory.map.name[length + 1].terrain = {
-            "type": tile,
-            "pos":
-            {
-              "x":x,
-              "y":y
+          if (tile == 'plains') {
+            if (checkWall(x, y)) {
+              if (empty(x, y)) {
+                if (!NRG(x, y)) {
+                  storeTile(name, x, y);
+                }
+                else {
+                  break;
+                }
+              }
+              else {
+                break;
+              } // emoty, no structures
             }
-          };
+            else {
+              break;
+            } // wall check
+          }
+          else {
+            break;
+          } // tile check
+          // addTile(tile, x, y); // Why am I doing this? Just store useable edges
         } // 'y' loop
       } // 'x' loop
       for (var i = 0; i < Memory.map.name.terrain.length; i++) {
@@ -29,7 +40,30 @@ var mapper = {
 
   } // getMap
 }; // mapper
+function checkWall(x, y) {
+  if (Game.map.getTerrainAt(x + 1, y, name) == 'wall' ||
+      Game.map.getTerrainAt(x - 1, y, name) == 'wall' ||
+      Game.map.getTerrainAt(x, y + 1, name) == 'wall' ||
+      Game.map.getTerrainAt(x, y - 1, name) == 'wall') {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
 
+function empty(x, y) { // Not Yet Implemented
+    return true;
+}
+
+function NRG(x, y) {
+    return false;
+}
+
+function storeTile(name, x, y) {
+  Memory.map.name.build[Memory.map.name.build.length].push({"pos": {"x": x, "y": y}});
+  console.log(Memory.map.name.build[Memory.map.name.build.length]);
+}
 /*
 Create Object "terrain" simply type,x,y
 save Memory.mapName.terrain
@@ -48,3 +82,5 @@ function checkAdjacent(x, y) {
 
 
 module.exports = mapper;
+
+// TODO only store edges, plains, with a wall adjacent, and no structure.
