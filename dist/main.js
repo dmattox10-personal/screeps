@@ -55,7 +55,7 @@ module.exports.loop = function () {
 
 
     // NEED THIS INFO:
-    mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, name);
+    //mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, name);
 
 
 

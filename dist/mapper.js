@@ -21,8 +21,8 @@ var mapper = {
           };
         } // 'y' loop
       } // 'x' loop
-      for (var i = 0; i < Memory.map.name.length; i++) {
-        console.log(Memory.map.name[i].terrain.type);
+      for (var i = 0; i < Memory.map.name.terrain.length; i++) {
+        //console.log(Memory.map.name[i]); // TODO Broken
       }
     }, // createMap
   getMap: function(name) {
