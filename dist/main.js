@@ -16,7 +16,6 @@ const ROOM_WIDTH = 50;
 module.exports.loop = function () {
 
     cleanup.memory();
-    mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, name, sources);
     // These are "Run Once" conditions:
     for(var name in Game.rooms) { // GOOD
       for(var spawn_name in Game.spawns) {
@@ -37,6 +36,9 @@ module.exports.loop = function () {
       } // DO STUFF WITH SPAWN HERE
     } // DO STUFF WITH ONLY ROOM NAME HERE
     // LOOP CONTINUES HERE
+    var sources = Game.rooms[name].find(FIND_SOURCES);
+
+    mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, name, sources);
     /*
     // These are for spawning common creeps
     for(var name in Game.rooms) {
@@ -77,7 +79,6 @@ module.exports.loop = function () {
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
     var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
-    var sources = Game.rooms[name].find(FIND_SOURCES);
     // Make sure we have enough harvesters, and if so
     if(harvesters.length < Memory.phase) {
         harvester.spawn(spawn_name, sources.length) // TODO spawn_name will eventually be more than one!
