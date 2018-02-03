@@ -32,9 +32,6 @@ var mapper = {
           // addTile(tile, x, y); // Why am I doing this? Just store useable edges
         } // 'y' loop
       } // 'x' loop
-      for (var i = 0; i < Memory.map.name.terrain.length; i++) {
-        //console.log(Memory.map.name[i]); // TODO Broken
-      }
     }, // createMap
   getMap: function(name) {
 
