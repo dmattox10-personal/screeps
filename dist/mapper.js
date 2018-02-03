@@ -8,7 +8,7 @@ var mapper = {
           let tile = Game.map.getTerrainAt(y, x, name);
           if (tile == "plain") {
             console.log("plain");
-            if (checkWall(x, y)) {
+            if (checkWall(x, y, name)) {
               console.log("wall");
               if (empty(x, y)) {
                 console.log("empty");
@@ -39,7 +39,7 @@ var mapper = {
 
   } // getMap
 }; // mapper
-function checkWall(x, y) {
+function checkWall(x, y, name) {
   if (Game.map.getTerrainAt(x + 1, y, name) == 'wall' ||
       Game.map.getTerrainAt(x - 1, y, name) == 'wall' ||
       Game.map.getTerrainAt(x, y + 1, name) == 'wall' ||
