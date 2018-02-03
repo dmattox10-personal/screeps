@@ -60,8 +60,8 @@ function NRG(x, y) {
 }
 
 function storeTile(name, x, y) {
-  Memory.map[Memory.map.build.length].push({"name":name, "pos": {"x": x, "y": y}});
-  console.log(Memory.map[Memory.map.build.length]);
+  Memory.map[Memory.map.length].push({"name":name, "pos": {"x": x, "y": y}});
+  console.log(Memory.map[Memory.map.length]);
 }
 /*
 Create Object "terrain" simply type,x,y
