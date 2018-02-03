@@ -7,9 +7,13 @@ var mapper = {
           //console.log(Game.map.getTerrainAt(x, y, name));
           let tile = Game.map.getTerrainAt(x, y, name);
           if (tile == 'plains') {
+            console.log("plains");
             if (checkWall(x, y)) {
+              console.log('wall');
               if (empty(x, y)) {
+                console.log("empty");
                 if (!NRG(x, y)) {
+                  console.log("!NRG");
                   storeTile(name, x, y);
                 }
                 else {
@@ -71,9 +75,7 @@ if (getMap(room, x,y) == clear) {
 }
 */
 
-function checkAdjacent(x, y) {
 
-}
 
 
 module.exports = mapper;
