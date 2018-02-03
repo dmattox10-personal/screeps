@@ -19,7 +19,7 @@ module.exports.loop = function () {
     // These are "Run Once" conditions:
     for(var name in Game.rooms) { // GOOD
       for(var spawn_name in Game.spawns) {
-        if (Memory.phase != Game.rooms[name].controller.level) { // THIS line and all below in this nested LOOP, all repeat for each room
+        if (Memory.phase < Game.rooms[name].controller.level) { // THIS line and all below in this nested LOOP, all repeat for each room
           switch(Memory.phase) { // TODO Map the room, every time we level up!
             case 1:
             phaseOne(name);
@@ -38,7 +38,7 @@ module.exports.loop = function () {
     // LOOP CONTINUES HERE
     var sources = Game.rooms[name].find(FIND_SOURCES);
 
-    mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, name, sources);
+    //mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, name, sources); // TODO finish this and build containers
     /*
     // These are for spawning common creeps
     for(var name in Game.rooms) {
