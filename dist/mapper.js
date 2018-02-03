@@ -2,7 +2,7 @@ var mapper = {
 
   createMap: function(ROOM_WIDTH, ROOM_HEIGHT, name, sources) {
     // Memory.map.name.sites // Gonna need this
-    Memory.map.name.build = [];
+    Memory.map.build = [];
       for (var x = 0; x < ROOM_WIDTH; x++) {
         for (var y = 0; y < ROOM_HEIGHT; y++) {
           //console.log(Game.map.getTerrainAt(x, y, name));
@@ -57,8 +57,8 @@ function NRG(x, y) {
 }
 
 function storeTile(name, x, y) {
-  Memory.map.name.build[Memory.map.name.build.length].push({"pos": {"x": x, "y": y}});
-  console.log(Memory.map.name.build[Memory.map.name.build.length]);
+  Memory.map.build[Memory.map.build.length].push({"name":name, "pos": {"x": x, "y": y}});
+  console.log(Memory.map.build[Memory.map.build.length]);
 }
 /*
 Create Object "terrain" simply type,x,y
