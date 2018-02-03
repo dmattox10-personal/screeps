@@ -61,7 +61,7 @@ function NRG(x, y) {
 }
 
 function storeTile(name, x, y) {
-  Memory.map[Memory.map.length].push( {"name":name, "pos": {"x": x, "y": y}} );
+  Memory.map[Memory.map.length] = {"name":name, "pos": {"x": x, "y": y}};
   console.log(Memory.map[Memory.map.length]);
 }
 /*
