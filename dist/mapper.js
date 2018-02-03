@@ -1,6 +1,7 @@
 var mapper = {
 
   createMap: function(ROOM_WIDTH, ROOM_HEIGHT, name, sources) {
+    Memory.map = [];
     // Memory.map.name.sites // Gonna need this
       for (var x = 0; x < ROOM_WIDTH; x++) {
         for (var y = 0; y < ROOM_HEIGHT; y++) {
