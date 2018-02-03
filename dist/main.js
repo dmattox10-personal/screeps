@@ -16,7 +16,7 @@ const ROOM_WIDTH = 50;
 module.exports.loop = function () {
 
     cleanup.memory();
-
+    mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, name, sources);
     // These are "Run Once" conditions:
     for(var name in Game.rooms) { // GOOD
       for(var spawn_name in Game.spawns) {
