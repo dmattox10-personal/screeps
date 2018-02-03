@@ -6,7 +6,6 @@ var mapper = {
         for (var y = 0; y < ROOM_HEIGHT; y++) {
           //console.log(Game.map.getTerrainAt(x, y, name));
           let tile = Game.map.getTerrainAt(y, x, name);
-          console.log(tile);
           if (tile == 'plains') {
             console.log("plains");
             if (checkWall(x, y)) {
