@@ -90,7 +90,7 @@ module.exports.loop = function () {
       if (upgraders.length < (Memory.phase * 4)) {
           upgrader.spawn(spawn_name, sources.length) // TODO spawn_name will eventually be more than one!
             }
-      if (builders.length < (Memory.phase)) { // Change to only spawn for tasks, no work, no creeps
+      if (builders.length < Memory.phase) { // Change to only spawn for tasks, no work, no creeps
           var newName = 'Builder' + Game.time;
           Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName, // TODO
             {memory: {role: 'builder'}});
