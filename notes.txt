@@ -1,0 +1,4 @@
+https://www.npmjs.com/package/screeps-spawn
+https://screepsworld.com/2017/09/screeps-tutorial-handling-creep-roles-with-a-state-machine/
+https://gist.github.com/findjonmos/2141897
+https://stackoverflow.com/questions/28934713/how-to-find-number-of-extentions
