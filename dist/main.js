@@ -22,13 +22,16 @@ module.exports.loop = function () {
         if (Memory.phase < Game.rooms[name].controller.level) { // THIS line and all below in this nested LOOP, all repeat for each room
           switch(Memory.phase) { // TODO Map the room, every time we level up!
             case 1:
-            phaseOne(name);
+            phaseOne(name, spawn_name, extensionsPerLevel[Game.room[name].controller.level]);
             break;
             case 2: // Put extensions here!
-            phaseTwo(name, spawn_name);
+            phaseTwo(name, spawn_name, extensionsPerLevel[Game.room[name].controller.level]);
             break;
             case 3: // THIS is the one that will matter, write code for
-            phaseThree(name, spawn_name);
+            phaseThree(name, spawn_name, extensionsPerLevel[Game.room[name].controller.level]);
+            break;
+            case 4:
+            phaseFour(name, spawn_name, extensionsPerLevel[Game.room[name].controller.level]);
             break;
           }
         }
@@ -85,7 +88,7 @@ module.exports.loop = function () {
     }
     else { // then we start making upgraders
 
-      if (upgraders.length < (Memory.phase * 4)) {
+      if (upgraders.length < (Memory.phase * 2)) {
           upgrader.spawn(spawn_name, sources.length) // TODO spawn_name will eventually be more than one!
             }
       if (builders.length < Memory.phase) { // Change to only spawn for tasks, no work, no creeps
@@ -116,39 +119,14 @@ function phaseTwo(name) {
   mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, name, sources); // TODO spawn_name will eventually be more than one!
 }
 
-function phaseOne(name) { // TODO spawn_name will eventually be more than one!
+function phaseOne(name, extensions) { // TODO spawn_name will eventually be more than one!
   console.log(name);
   // IF number of extensions is lest than extensions
   // per level, set the level down again, so that buildE
   // runs again! Use code from harvester to find extensions
 
-/*
-  var count = 0;
-  for (var x = 0; x < ROOM_WIDTH; x++) {
-    for (var y = 0; y < ROOM_HEIGHT; y++) {
-      console.log(Game.map.getTerrainAt(x, y, name));
-      console.log(count);
-      count++;
-      map()
-      if(!tryN(pattern2)){
-        if(!tryE(pattern2)) {
-          if(!tryS(pattern2)) {
-            if(!tryW(pattern2)) {
-              console.log("Building Failed!")
-            }
-            else {buildW(pattern2)}
-          }
-          else{buildS(pattern2)}
-        }
-        else{buildE(pattern2)}
-      }
-      else {buildN(pattern2)}
-    }
-  }
-  */
-
   /*
-  for (var i = 0; i < 5; i++) {
+  for (var i = 0; i < extensions; i++) {
   Game.rooms[name].createConstructionSite(5, (i + 37), STRUCTURE_EXTENSION); //TODO HARDCODED
   }
   */
