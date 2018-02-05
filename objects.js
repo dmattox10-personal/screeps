@@ -81,3 +81,49 @@
   "hits":300,
   "hitsMax":300
 }
+
+//sources
+[
+  {
+    "room":
+    {
+      "name":"E13S28",
+      "energyAvailable":103,
+      "energyCapacityAvailable":300,
+      "visual":
+      {
+        "roomName":"E13S28"
+      }
+    },
+    "pos":
+    {
+      "x":16,"y":25,
+      "roomName":"E13S28"
+    },
+    "id":"59f1a3e582100e1594f3c1d9",
+    "energy":2982,
+    "energyCapacity":3000,
+    "ticksToRegeneration":75
+  },
+  {
+    "room":
+    {
+      "name":"E13S28",
+      "energyAvailable":103,
+      "energyCapacityAvailable":300,
+      "visual":
+      {
+        "roomName":"E13S28"
+      }
+    },
+    "pos":
+    {
+      "x":31,"y":39,
+      "roomName":"E13S28"
+    },
+    "id":"59f1a3e582100e1594f3c1db",
+    "energy":2666,
+    "energyCapacity":3000,
+    "ticksToRegeneration":79
+  }
+]

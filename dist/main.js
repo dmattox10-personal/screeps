@@ -1,8 +1,10 @@
 // MAIN WITH MEMORY MANAGEMENT
+// TODO move Memory.phase control to phase action logic
 
-var roleUpgrader = require('role.upgrader');
+var upgrader = require('upgraderV2');
 var roleBuilder = require('role.builder');
 var harvester = require('harvesterV2');
+var mapper = require('mapper');
 
 var cleanup = require('cleanup');
 
@@ -14,28 +16,32 @@ const ROOM_WIDTH = 50;
 module.exports.loop = function () {
 
     cleanup.memory();
-
     // These are "Run Once" conditions:
     for(var name in Game.rooms) { // GOOD
       for(var spawn_name in Game.spawns) {
-        if (Memory.phase < Game.rooms[name].controller.level) {
+        if (Memory.phase < Game.rooms[name].controller.level) { // THIS line and all below in this nested LOOP, all repeat for each room
           switch(Memory.phase) { // TODO Map the room, every time we level up!
             case 1:
-            phaseOne(name, spawn_name);
+            phaseOne(name, spawn_name, extensionsPerLevel[Game.room[name].controller.level]);
             break;
             case 2: // Put extensions here!
-            phaseTwo(name, spawn_name);
+            phaseTwo(name, spawn_name, extensionsPerLevel[Game.room[name].controller.level]);
             break;
             case 3: // THIS is the one that will matter, write code for
-            phaseThree(name, spawn_name);
+            phaseThree(name, spawn_name, extensionsPerLevel[Game.room[name].controller.level]);
+            break;
+            case 4:
+            phaseFour(name, spawn_name, extensionsPerLevel[Game.room[name].controller.level]);
             break;
           }
         }
-        Memory.phase = Game.rooms[name].controller.level
-
+        Memory.phase = Game.rooms[name].controller.level // TODO MOVE THIS TO PHASE LOGIC IN CASE WE NEED TO RESET!!!
       } // DO STUFF WITH SPAWN HERE
     } // DO STUFF WITH ONLY ROOM NAME HERE
     // LOOP CONTINUES HERE
+    var sources = Game.rooms[name].find(FIND_SOURCES);
+
+    //mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, name, sources); // TODO finish this and build containers
     /*
     // These are for spawning common creeps
     for(var name in Game.rooms) {
@@ -50,7 +56,8 @@ module.exports.loop = function () {
 
 
 
-
+    // NEED THIS INFO:
+    //mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, name);
 
 
 
@@ -67,7 +74,6 @@ module.exports.loop = function () {
         }
       }
       */
-      var sources = Game.rooms[name].find(FIND_SOURCES);
     // TODO NEED THIS
     //var extensions = Game.spawns.Spawn1.room.find(FIND_MY_STRUCTURES, { // TODO HARDCODED
     //  filter: { structureType: STRUCTURE_EXTENSION }
@@ -76,20 +82,16 @@ module.exports.loop = function () {
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
     var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
-
     // Make sure we have enough harvesters, and if so
-    if(harvesters.length < (Memory.phase * 2)) {
-        harvester.spawn(spawn_name, sources.length)
+    if(harvesters.length < Memory.phase) {
+        harvester.spawn(spawn_name, sources.length) // TODO spawn_name will eventually be more than one!
     }
     else { // then we start making upgraders
 
       if (upgraders.length < (Memory.phase * 2)) {
-
-          var newName = 'Upgrader' + Game.time;
-          Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName, // TODO
-              {memory: {role: 'upgrader'}});
+          upgrader.spawn(spawn_name, sources.length) // TODO spawn_name will eventually be more than one!
             }
-      if (builders.length < (Memory.phase * 2)) {
+      if (builders.length < Memory.phase) { // Change to only spawn for tasks, no work, no creeps
           var newName = 'Builder' + Game.time;
           Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName, // TODO
             {memory: {role: 'builder'}});
@@ -101,63 +103,37 @@ module.exports.loop = function () {
         var source = creep.memory.source;
         if(creep.memory.role == 'harvester') {
           harvester.main(creep, sources, source);
-        //    roleHarvester.run(creep);
         }
         if(creep.memory.role == 'upgrader') {
-            roleUpgrader.run(creep);
+          upgrader.main(creep, sources, source);
         }
-        if(creep.memory.role == 'builder') {
-            roleBuilder.run(creep);
+        if(creep.memory.role == 'builder') { // TODO fix this one next
+          roleBuilder.run(creep);
         }
     }
 }
 
-function phaseOne() {
+function phaseTwo(name) {
   console.log("Welcome to the jungle!");
+  var sources = Game.rooms[name].find(FIND_SOURCES);
+  mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, name, sources); // TODO spawn_name will eventually be more than one!
 }
 
-function phaseTwo(name, spawn_name) {
+function phaseOne(name, extensions) { // TODO spawn_name will eventually be more than one!
   console.log(name);
-  console.log(spawn_name);
   // IF number of extensions is lest than extensions
   // per level, set the level down again, so that buildE
   // runs again! Use code from harvester to find extensions
-  
-/*
-  var count = 0;
-  for (var x = 0; x < ROOM_WIDTH; x++) {
-    for (var y = 0; y < ROOM_HEIGHT; y++) {
-      console.log(Game.map.getTerrainAt(x, y, name));
-      console.log(count);
-      count++;
-      map()
-      if(!tryN(pattern2)){
-        if(!tryE(pattern2)) {
-          if(!tryS(pattern2)) {
-            if(!tryW(pattern2)) {
-              console.log("Building Failed!")
-            }
-            else {buildW(pattern2)}
-          }
-          else{buildS(pattern2)}
-        }
-        else{buildE(pattern2)}
-      }
-      else {buildN(pattern2)}
-    }
-  }
-  */
 
   /*
-  for (var i = 0; i < 5; i++) {
+  for (var i = 0; i < extensions; i++) {
   Game.rooms[name].createConstructionSite(5, (i + 37), STRUCTURE_EXTENSION); //TODO HARDCODED
   }
   */
 }
 
-function phaseThree(name, spawn) {
+function phaseThree(name) {
   console.log(name);
-  console.log(spawn_name);
 }
 /*
 // DEFENSE CODE ================================================================

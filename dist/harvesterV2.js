@@ -1,6 +1,6 @@
 var harvesterV2 = {
   main: function(creep, sources, source) {
-    if(creepEmpty(creep)) {
+    if(creep.carry.energy < creep.carryCapacity) {
       if(creep.harvest(sources[source]) == ERR_NOT_IN_RANGE) {
           creep.moveTo(sources[source], {visualizePathStyle: {stroke: '#ffaa00'}});
       }
@@ -27,13 +27,6 @@ var harvesterV2 = {
         {memory: {role: 'harvester', source: (Math.floor(Math.random() * length))}});
       } // loop
 };
-
-function creepEmpty(creep) {
-  if(creep.carry.energy < creep.carryCapacity) {
-    return true;
-  }
-  else {return false;}
-}
 
 
 
