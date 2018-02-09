@@ -22,16 +22,16 @@ module.exports.loop = function () {
         if (Memory.phase < Game.rooms[name].controller.level) { // THIS line and all below in this nested LOOP, all repeat for each room
           switch(Memory.phase) { // TODO Map the room, every time we level up!
             case 1:
-            phaseOne(name, spawn_name, extensionsPerLevel[Game.room[name].controller.level]);
+            phaseOne(name, spawn_name, extensionsPerLevel[Game.rooms[name].controller.level]);
             break;
             case 2: // Put extensions here!
-            phaseTwo(name, spawn_name, extensionsPerLevel[Game.room[name].controller.level]);
+            phaseTwo(name, spawn_name, extensionsPerLevel[Game.rooms[name].controller.level]);
             break;
             case 3: // THIS is the one that will matter, write code for
-            phaseThree(name, spawn_name, extensionsPerLevel[Game.room[name].controller.level]);
+            phaseThree(name, spawn_name, extensionsPerLevel[Game.rooms[name].controller.level]);
             break;
             case 4:
-            phaseFour(name, spawn_name, extensionsPerLevel[Game.room[name].controller.level]);
+            phaseFour(name, spawn_name, extensionsPerLevel[Game.rooms[name].controller.level]);
             break;
           }
         }
