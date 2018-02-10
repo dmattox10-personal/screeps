@@ -18,9 +18,11 @@ module.exports.loop = function () {
     if(scheduler.ticks5(Game.time)) {
       console.log("5 TICKS!")
     }
+    /*
     if(scheduler.ticks25(Game.time)) {
       console.log("25 TICKS!")
     }
+    */
     cleanup.memory();
     // These are "Run Once" conditions:
     for(var name in Game.rooms) { // GOOD

@@ -1,10 +1,11 @@
-var ticks = {
-  ticks5: function(time) {
+var ticks5 = {
+  test: function() {
     if (time % 5 === 0) {
       return true;
     }
   }
-
+}
+/*
   ticks10: function(time) {
     if (time % 10 === 0) {
       return true;
@@ -30,3 +31,4 @@ var ticks = {
   }
 
 }
+*/
