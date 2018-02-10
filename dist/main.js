@@ -20,6 +20,7 @@ module.exports.loop = function () {
       console.log("FIVE TICKS!")
     }
     console.log(Game.time);
+    console.log(scheduler.ten);
     cleanup.memory();
     // These are "Run Once" conditions:
     for(var name in Game.rooms) { // GOOD
