@@ -5,6 +5,7 @@ var upgrader = require('upgraderV2');
 var roleBuilder = require('role.builder');
 var harvester = require('harvesterV2');
 var mapper = require('mapper');
+var timer = require('timer');
 
 var cleanup = require('cleanup');
 
@@ -45,6 +46,7 @@ module.exports.loop = function () {
     if (Game.time % 5 == 0) {
       console.log("Five ticks!");
     }
+    console.log(timer.five);
     //mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, name, sources); // TODO finish this and build containers
     /*
     // These are for spawning common creeps
