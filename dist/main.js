@@ -16,8 +16,9 @@ const ROOM_WIDTH = 50;
 
 module.exports.loop = function () {
 
-    var timer = scheduler.ticks.five();
-      console.log(timer);
+    if (scheduler.five()) {
+      console.log("FIVE TICKS!")
+    }
 
     cleanup.memory();
     // These are "Run Once" conditions:
