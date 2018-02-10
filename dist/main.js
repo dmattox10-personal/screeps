@@ -16,9 +16,8 @@ const ROOM_WIDTH = 50;
 
 module.exports.loop = function () {
 
-    if (scheduler.five(Game.time)) {
-      console.log("FIVE TICKS!")
-    }
+    var five = scheduler.five(Game.time);
+    console.log(five);
     //console.log(Game.time);
     //console.log(scheduler.ten);
     cleanup.memory();
