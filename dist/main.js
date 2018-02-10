@@ -15,7 +15,7 @@ const ROOM_HEIGHT = 50;
 const ROOM_WIDTH = 50;
 
 module.exports.loop = function () {
-    if(scheduler.ticks5(Game.time)) {
+    if(scheduler.ticks5.test())) {
       console.log("5 TICKS!")
     }
     /*
