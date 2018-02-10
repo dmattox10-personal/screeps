@@ -16,11 +16,11 @@ const ROOM_WIDTH = 50;
 
 module.exports.loop = function () {
 
-    if (scheduler.five) {
+    if (scheduler.five(Game.time)) {
       console.log("FIVE TICKS!")
     }
-    console.log(Game.time);
-    console.log(scheduler.ten);
+    //console.log(Game.time);
+    //console.log(scheduler.ten);
     cleanup.memory();
     // These are "Run Once" conditions:
     for(var name in Game.rooms) { // GOOD
