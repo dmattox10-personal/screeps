@@ -2,7 +2,8 @@ var scheduler = {
   five: (Game) => {
     console.log("five!");
     if (Game.time % 5 == 0) {
-      return true;
+      var time = 100;
+      return time;
     }
     else {return false;}
   },
