@@ -16,8 +16,8 @@ const ROOM_WIDTH = 50;
 
 module.exports.loop = function () {
 
-    console.log(scheduler.five(Game.time));
-    //console.log(Game.time);
+    //console.log(scheduler.five(Game.time));
+    console.log(Game.time);
     //console.log(scheduler.ten);
     cleanup.memory();
     // These are "Run Once" conditions:
