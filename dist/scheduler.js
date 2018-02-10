@@ -1,5 +1,5 @@
 var scheduler = {
-  five: () => {
+  five: (Game.time) => {
     console.log("five!");
     if (Game.time % 5 == 0) {
       return true;
