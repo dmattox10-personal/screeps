@@ -1,4 +1,4 @@
-var timer = {
+var scheduler = {
   five: (Game) => {
     if (Game.time % 5 == 0) {
       return true;
