@@ -16,7 +16,7 @@ const ROOM_WIDTH = 50;
 
 module.exports.loop = function () {
 
-    console.log(scheduler.five);
+    console.log(scheduler.five());
     //console.log(scheduler.ten);
     cleanup.memory();
     // These are "Run Once" conditions:
