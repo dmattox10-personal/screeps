@@ -1,24 +1,24 @@
 var scheduler = {
   five: function(time) {
-    if (time % 5 === 0) {
+    if (time % 5 == 0) {
       return true;
     }
     else {return false;}
   },
   ten: function(time) {
-    if (time % 10 === 0) {
+    if (time % 10 == 0) {
       return true;
     }
     else {return false;}
   },
   twentyFive: function(time) {
-    if (time % 25 === 0) {
+    if (time % 25 == 0) {
       return true;
     }
     else {return false;}
   },
   fifty: function(time) {
-    if (time % 5 === 0) {
+    if (time % 5 == 0) {
       return true;
     }
     else {return false;}
