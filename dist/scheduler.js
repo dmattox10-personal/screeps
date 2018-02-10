@@ -1,20 +1,20 @@
-var ticks = {
-  five: () => {
+var scheduler = {
+  five: function() {
     if (Game.time % 5 === 0) {
       return true;
     }
   },
-  ten: () => {
+  ten: function() {
     if (Game.time % 10 === 0) {
       return true;
     }
   },
-  twentyFive: () => {
+  twentyFive: function() {
     if (Game.time % 25 === 0) {
       return true;
     }
   },
-  fifty: () => {
+  fifty: function() {
     if (Game.time % 5 === 0) {
       return true;
     }
