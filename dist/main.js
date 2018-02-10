@@ -46,7 +46,7 @@ module.exports.loop = function () {
     if (Game.time % 5 == 0) {
       console.log("Five ticks!");
     }
-    console.log(timer.five);
+    console.log(timer.five(Game));
     //mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, name, sources); // TODO finish this and build containers
     /*
     // These are for spawning common creeps
