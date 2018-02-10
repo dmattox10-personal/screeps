@@ -5,6 +5,7 @@ var upgrader = require('upgraderV2');
 var roleBuilder = require('role.builder');
 var harvester = require('harvesterV2');
 var mapper = require('mapper');
+var scheduler = require('scheduler');
 
 var cleanup = require('cleanup');
 
@@ -14,7 +15,12 @@ const ROOM_HEIGHT = 50;
 const ROOM_WIDTH = 50;
 
 module.exports.loop = function () {
-
+    if(scheduler.ticks5()) {
+      console.log("5 TICKS!")
+    }
+    if(scheduler.ticks25()) {
+      console.log("25 TICKS!")
+    }
     cleanup.memory();
     // These are "Run Once" conditions:
     for(var name in Game.rooms) { // GOOD
