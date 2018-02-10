@@ -5,7 +5,7 @@ var upgrader = require('upgraderV2');
 var roleBuilder = require('role.builder');
 var harvester = require('harvesterV2');
 var mapper = require('mapper');
-var scheduler = require('util/scheduler');
+var scheduler = require('scheduler');
 
 var cleanup = require('cleanup');
 
@@ -16,7 +16,7 @@ const ROOM_WIDTH = 50;
 
 module.exports.loop = function () {
 
-    console.log(scheduler.five());
+    console.log(scheduler.fiveTicks());
     //console.log(scheduler.ten);
     cleanup.memory();
     // These are "Run Once" conditions:

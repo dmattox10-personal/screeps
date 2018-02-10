@@ -1,24 +1,24 @@
 var scheduler = {
-  five: () => {
+  fiveTicks: () => {
     if (Game.time % 5 == 0) {
       return true;
     }
     else {return false;}
   },
-  ten: function() {
+  tenTicks: function() {
     if (Game.time % 10 == 0) {
       return true;
     }
     else {return false;}
   },
-  twentyFive: function() {
+  twentyFiveTicks: function() {
     if (Game.time % 25 == 0) {
       return true;
     }
     else {return false;}
   },
-  fifty: function() {
-    if (Game.time % 5 == 0) {
+  fiftyTicks: function() {
+    if (Game.time % 50 == 0) {
       return true;
     }
     else {return false;}
