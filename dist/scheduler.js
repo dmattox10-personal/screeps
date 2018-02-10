@@ -1,5 +1,5 @@
 var scheduler = {
-  five: (Game) => {
+  five: () => {
     if (Game.time % 5 == 0) {
       return true;
     }
