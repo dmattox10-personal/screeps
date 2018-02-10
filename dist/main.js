@@ -41,7 +41,7 @@ module.exports.loop = function () {
     } // DO STUFF WITH ONLY ROOM NAME HERE
     // LOOP CONTINUES HERE
     var sources = Game.rooms[name].find(FIND_SOURCES);
-    if (Game.time % 5 == 0) {
+    if (Game.time % 5 === 0) {
       console.log("Five ticks!");
     }
     //mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, name, sources); // TODO finish this and build containers
