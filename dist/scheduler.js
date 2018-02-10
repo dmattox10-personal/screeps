@@ -1,6 +1,6 @@
 var scheduler = {
-  five: function(time) {
-    if (time % 5 == 0) {
+  five: function() {
+    if (Game.time % 5 == 0) {
       return true;
     }
     else {return false;}
