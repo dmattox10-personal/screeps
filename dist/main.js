@@ -16,7 +16,7 @@ const ROOM_WIDTH = 50;
 
 module.exports.loop = function () {
 
-    if (scheduler.five()) {
+    if (scheduler.five) {
       console.log("FIVE TICKS!")
     }
 
