@@ -5,7 +5,7 @@ var upgrader = require('upgraderV2');
 var roleBuilder = require('role.builder');
 var harvester = require('harvesterV2');
 var mapper = require('mapper');
-var scheduler = require('./util/scheduler');
+var scheduler = require('scheduler');
 
 var cleanup = require('cleanup');
 
