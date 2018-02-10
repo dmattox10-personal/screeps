@@ -1,27 +1,28 @@
 var timer = {
   five: (Game) => {
-    console.log("five!");
     if (Game.time % 5 == 0) {
       return true;
     }
     else {return false;}
   },
-  ten: function(time) {
-    if (time % 10 == 0) {
+  ten: function() {
+    if (Game.time % 10 == 0) {
       return true;
     }
     else {return false;}
   },
-  twentyFive: function(time) {
-    if (time % 25 == 0) {
+  twentyFive: function() {
+    if (Game.time % 25 == 0) {
       return true;
     }
     else {return false;}
   },
-  fifty: function(time) {
-    if (time % 5 == 0) {
+  fifty: function() {
+    if (Game.time % 5 == 0) {
       return true;
     }
     else {return false;}
   }
 };
+
+module.exports = scheduler;

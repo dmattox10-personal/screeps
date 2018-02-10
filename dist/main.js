@@ -5,6 +5,8 @@ var upgrader = require('upgraderV2');
 var roleBuilder = require('role.builder');
 var harvester = require('harvesterV2');
 var mapper = require('mapper');
+var scheduler = require('scheduler');
+
 var cleanup = require('cleanup');
 
 const extensionsPerLevel = [0, 0, 5, 10, 20, 30, 40, 50, 60];
@@ -14,7 +16,7 @@ const ROOM_WIDTH = 50;
 
 module.exports.loop = function () {
 
-    console.log(Game.time);
+    console.log(scheduler.five);
     //console.log(scheduler.ten);
     cleanup.memory();
     // These are "Run Once" conditions:
@@ -41,9 +43,7 @@ module.exports.loop = function () {
     } // DO STUFF WITH ONLY ROOM NAME HERE
     // LOOP CONTINUES HERE
     var sources = Game.rooms[name].find(FIND_SOURCES);
-    if (Game.time % 5 === 0) {
-      console.log("Five ticks!");
-    }
+
     //mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, name, sources); // TODO finish this and build containers
     /*
     // These are for spawning common creeps
