@@ -25,15 +25,9 @@ var builderV2 = {
             }
 	    }
 	}
-
-
-
-
-
-
-
-
 }
+
+
 var roleBuilder = {
 
     /** @param {Creep} creep **/
