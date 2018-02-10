@@ -1,5 +1,6 @@
 var scheduler = {
   five: function() {
+    console.log("five!");
     if (Game.time % 5 == 0) {
       return true;
     }
