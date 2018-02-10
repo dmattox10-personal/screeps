@@ -15,10 +15,10 @@ const ROOM_HEIGHT = 50;
 const ROOM_WIDTH = 50;
 
 module.exports.loop = function () {
-    if(scheduler.ticks5()) {
+    if(scheduler.ticks5 {
       console.log("5 TICKS!")
     }
-    if(scheduler.ticks25()) {
+    if(scheduler.ticks25 {
       console.log("25 TICKS!")
     }
     cleanup.memory();
