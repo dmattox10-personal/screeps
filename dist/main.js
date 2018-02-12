@@ -21,7 +21,7 @@ module.exports.loop = function () {
     // These are "Run Once" conditions:
     for(var name in Game.rooms) { // GOOD
       for(var spawn_name in Game.spawns) {
-        if (Memory.phase < Game.rooms[name].controller.level) { // THIS line and all below in this nested LOOP, all repeat for each room
+        if (Memory.phase == "undefined" || Memory.phase < Game.rooms[name].controller.level) { // THIS line and all below in this nested LOOP, all repeat for each room
           switch(Memory.phase) { // TODO Map the room, every time we level up!
             case 1:
             phaseOne(name, spawn_name, extensionsPerLevel[Game.rooms[name].controller.level]);
