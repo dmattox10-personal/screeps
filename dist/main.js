@@ -15,9 +15,6 @@ const ROOM_HEIGHT = 50;
 const ROOM_WIDTH = 50;
 
 module.exports.loop = function () {
-    if (scheduler.hundredTicks()) {
-      cleanup.memory;
-    }
     // These are "Run Once" conditions:
     for(var name in Game.rooms) { // GOOD
       for(var spawn_name in Game.spawns) {
@@ -116,6 +113,9 @@ module.exports.loop = function () {
         if(creep.memory.role == 'builder') { // TODO fix this one next
           roleBuilder.run(creep);
         }
+    }
+    if (scheduler.hundredTicks()) {
+      cleanup.memory;
     }
 }
 
