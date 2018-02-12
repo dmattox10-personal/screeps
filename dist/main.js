@@ -18,6 +18,7 @@ module.exports.loop = function () {
     // These are "Run Once" conditions:
     for(var name in Game.rooms) { // GOOD
       for(var spawn_name in Game.spawns) {
+        mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, name, sources)
         if (!Memory.phase || Memory.phase < Game.rooms[name].controller.level) { // THIS line and all below in this nested LOOP, all repeat for each room
           switch(Memory.phase) { // TODO Map the room, every time we level up!
             case 1:
