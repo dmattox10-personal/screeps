@@ -119,13 +119,13 @@ module.exports.loop = function () {
     }
 }
 
-function phaseTwo(name) {
+function phaseTwo(name, spawn_name, extensions) {
   console.log("Welcome to the jungle!");
   var sources = Game.rooms[name].find(FIND_SOURCES);
   mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, name, sources); // TODO spawn_name will eventually be more than one!
 }
 
-function phaseOne(name, extensions) { // TODO spawn_name will eventually be more than one!
+function phaseOne(name, spawn_name, extensions) { // TODO spawn_name will eventually be more than one!
   console.log(name);
   // IF number of extensions is lest than extensions
   // per level, set the level down again, so that buildE
@@ -138,7 +138,7 @@ function phaseOne(name, extensions) { // TODO spawn_name will eventually be more
   */
 }
 
-function phaseThree(name) {
+function phaseThree(name, spawn_name, extensions) {
   console.log(name);
 }
 /*
