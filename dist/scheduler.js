@@ -1,3 +1,5 @@
+// TODO Anything scheduled, needs to save it's data to memory
+
 var scheduler = {
   fiveTicks: () => {
     if (Game.time % 5 == 0) {
@@ -19,6 +21,18 @@ var scheduler = {
   },
   fiftyTicks: function() {
     if (Game.time % 50 == 0) {
+      return true;
+    }
+    else {return false;}
+  },
+  hundredTicks: () => {
+    if (Game.time % 100 == 0) {
+      return true;
+    }
+    else {return false;}
+  },
+  thousandTicks: () => {
+    if (Game.time % 1000 == 0) {
       return true;
     }
     else {return false;}

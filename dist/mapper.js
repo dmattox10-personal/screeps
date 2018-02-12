@@ -16,6 +16,7 @@ var mapper = {
                 if (!NRG(x, y)) {
                   console.log("!NRG");
                   storeTile(name, x, y);
+                  console.log("stored tile at " + x + ", " + y);
                 }
                 else {
                   break;
@@ -40,7 +41,7 @@ var mapper = {
 
   } // getMap
 }; // mapper
-function checkWall(x, y, name) {
+function checkWall(y, x, name) {
   if (Game.map.getTerrainAt(x + 1, y, name) == 'wall' ||
       Game.map.getTerrainAt(x - 1, y, name) == 'wall' ||
       Game.map.getTerrainAt(x, y + 1, name) == 'wall' ||
@@ -56,8 +57,12 @@ function empty(x, y) { // Not Yet Implemented
     return true;
 }
 
-function NRG(x, y) {
+function NRG(x, y) { // Not Yet Implemented
+  const pos = Game.rooms.name.getPositionAt(x, y);
+  const source = pos.findClosestByRange(FIND_SOURCES_ACTIVE);
+  if (source > 3) {
     return false;
+  }
 }
 
 function storeTile(name, x, y) {
@@ -75,7 +80,6 @@ if (getMap(room, x,y) == clear) {
   var buildableTile = new terrain {type: type, pos:{x:x, y:y}}
 }
 */
-
 
 
 
