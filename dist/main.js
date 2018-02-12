@@ -15,7 +15,7 @@ const ROOM_HEIGHT = 50;
 const ROOM_WIDTH = 50;
 
 module.exports.loop = function () {
-    if (hundredTicks()) {
+    if (scheduler.hundredTicks()) {
       cleanup.memory;
     }
     // These are "Run Once" conditions:
