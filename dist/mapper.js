@@ -41,7 +41,7 @@ var mapper = {
 
   } // getMap
 }; // mapper
-function checkWall(y, x, name) {
+function checkWall(x, y, name) {
   if (Game.map.getTerrainAt(x + 1, y, name) == 'wall' ||
       Game.map.getTerrainAt(x - 1, y, name) == 'wall' ||
       Game.map.getTerrainAt(x, y + 1, name) == 'wall' ||
