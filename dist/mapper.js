@@ -13,7 +13,7 @@ var mapper = {
               console.log("wall");
               if (empty(x, y)) {
                 console.log("empty");
-                if (!NRG(x, y)) {
+                if (!NRG(name, x, y)) {
                   console.log("!NRG");
                   storeTile(name, x, y);
                   console.log("stored tile at " + x + ", " + y);
@@ -57,7 +57,7 @@ function empty(x, y) { // Not Yet Implemented
     return true;
 }
 
-function NRG(x, y) { // Not Yet Implemented
+function NRG(name, x, y) { // Not Yet Implemented
   const pos = Game.rooms.name.getPositionAt(x, y);
   const source = pos.findClosestByRange(FIND_SOURCES_ACTIVE);
   if (source > 3) {
