@@ -57,7 +57,8 @@ function empty(x, y) { // Not Yet Implemented
     return true;
 }
 
-function NRG(name, x, y) { // Not Yet Implemented
+function NRG(x, y) { // Not Yet Implemented
+  console.log(Game.rooms.name);
   const pos = Game.rooms.name.getPositionAt(x, y);
   const source = pos.findClosestByRange(FIND_SOURCES_ACTIVE);
   if (source > 3) {
