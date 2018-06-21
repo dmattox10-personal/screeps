@@ -1,6 +1,6 @@
 
 var scheduler = require('scheduler')
-//var spawner = require('spawner')
+var spawner = require('spawner')
 var cleanup = require('cleanup')
 
 const extensionsPerLevel = [0, 0, 5, 10, 20, 30, 40, 50, 60]
