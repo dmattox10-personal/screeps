@@ -9,21 +9,24 @@ const ROOM_HEIGHT = 50
 const ROOM_WIDTH = 50
 
 module.exports.loop = function () {
+
+  // START 5 TICKS
   if (scheduler.fiveTicks) {
-    console.log("pulse")
-  }
-  for(var room_name in Game.rooms) {
-    console.log(Game.rooms)
-      for(var spawn_name in Game.spawns) {
-        //var spawner = Game.spawns[spawn_name]; //Can I do this?
-        var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester')
-        var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader')
-        var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder')
-        var sources = Game.rooms[room_name].find(FIND_SOURCES);
-        console.log('Room ' + room_name + " contains spawn " + spawn_name)
-        console.log('There are ' + (harvesters.length + upgraders.length + builders.length) + ' creeps interacting with ' + sources.length + ' sources')
+    for(var room_name in Game.rooms) {
+      console.log(Game.rooms)
+        for(var spawn_name in Game.spawns) {
+          var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester')
+          var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader')
+          var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder')
+          var sources = Game.rooms[room_name].find(FIND_SOURCES);
+          var source = sources[Math.floor(Math.random() * sources.length)]
+          console.log('Room ' + room_name + " contains spawn " + spawn_name)
+          console.log('There are ' + (harvesters.length + upgraders.length + builders.length) + ' creeps interacting with ' + sources.length + ' sources')
+          console.log('Next source assigned will be ' + source)
+        }
       }
     }
+    // END 5 TICKS
     /*
   if (harvesters.length < 3) {
     var components = [WORK,CARRY,MOVE,MOVE]
