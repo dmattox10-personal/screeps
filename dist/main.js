@@ -11,7 +11,6 @@ const ROOM_WIDTH = 50
 module.exports.loop = function () {
   if (scheduler.fiveTicks) {
     console.log("pulse")
-    console.log(sources)
   }
   var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester')
   var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader')
@@ -48,7 +47,10 @@ module.exports.loop = function () {
 
 
     // NEED THIS INFO:
-    //mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, name);
+    //mapper.createMap(ROOM_WIDTH, ROOM_          if(Object.is(spawn.room, room)) {
+            console.log('Examining ' + spawn_name + ':');
+            console.log('Energy Available: ' + room.energyAvailable);
+          }HEIGHT, name);
 
 
 
@@ -57,12 +59,9 @@ module.exports.loop = function () {
     for(var name in Game.rooms) {
       console.log('Examining ' + name + ':');
       var sources = Game.rooms[name].find(FIND_SOURCES);
+      console.log('There are ' + sources.length + 'sources in this room: ' + sources)
         for(var spawn_name in Game.spawns) {
           var spawn = Game.spawns[spawn_name];
-          if(Object.is(spawn.room, room)) {
-            console.log('Examining ' + spawn_name + ':');
-            console.log('Energy Available: ' + room.energyAvailable);
-          }
         }
       }
     // TODO NEED THIS
