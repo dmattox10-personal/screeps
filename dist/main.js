@@ -15,12 +15,12 @@ module.exports.loop = function () {
   for(var room_name in Game.rooms) {
     console.log(Game.rooms)
       for(var spawn_name in Game.spawns) {
-        var spawner = Game.spawns[spawn_name]; //Can I do this?
+        //var spawner = Game.spawns[spawn_name]; //Can I do this?
         var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester')
         var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader')
         var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder')
         var sources = Game.rooms[room_name].find(FIND_SOURCES);
-        console.log('Room ' + room_name + " contains spawn " + spawner)
+        console.log('Room ' + room_name + " contains spawn " + spawn_name)
         console.log('There are ' + (harvesters.length + upgraders.length + builders.length) + ' creeps interacting with ' + sources.length + ' sources')
       }
     }
