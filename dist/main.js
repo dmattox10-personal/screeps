@@ -12,6 +12,9 @@ const ROOM_WIDTH = 50
 // Move to Harvester
 // var sources = Game.rooms[room_name].find(FIND_SOURCES)
 // var source = sources[Math.floor(Math.random() * sources.length)]
+var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester')
+var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader')
+var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder')
 
 module.exports.loop = function () {
 
@@ -19,15 +22,16 @@ module.exports.loop = function () {
   if (scheduler.fiveTicks) {
     for(var room_name in Game.rooms) {
         for(var spawn_name in Game.spawns) {
-          var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester')
-          var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader')
-          var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder')
           if (harvesters.length < 3) {
             harvesterV3.spawn(spawn_name)
           }
 
         }
       }
+    }
+    // MAIN loop
+    for (var harvester in harvesters) {
+      harvesters.run(harvester)
     }
     // END 5 TICKS
     /*
