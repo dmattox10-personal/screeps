@@ -29,7 +29,7 @@ module.exports.loop = function () {
   // START 5 TICKS
   if (scheduler.fiveTicks) {
     for (var harvester in harvesters) {
-      harvesterV3.run(harvester.name)
+      harvesterV3.run(harvester)
 
     }
     }
