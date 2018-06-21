@@ -25,96 +25,97 @@ module.exports.loop = function () {
           harvesterV3.spawn(spawn_name)
         }
       }
-  // START 5 TICKS
 
-    // MAIN loop
-
-    // END 5 TICKS
-    /*
-  if (harvesters.length < 3) {
-    var components = [WORK,CARRY,MOVE,MOVE]
-    spawner.spawn('harvester', name)
-  }
-
-  if (upgraders.length < 3) {
-    spawner.spawn('upgrader')
-  }
-
-  if (builders.length < 2) {
-    spawner.spawn('builder')
-  }
-  */
-
-    // These are "Run Once" conditions:
-    // LOOP CONTINUES HERE
-    //mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, name, sources); // TODO finish this and build containers
-    /*
-    // These are for spawning common creeps
-    for(var name in Game.rooms) {
-      for(var spawn_name in Game.spawns) {
-        var sources = Game.rooms[name].find(FIND_SOURCES);
-        console.log(sources.length);
-
-      } // DO STUFF WITH SPAWN HERE
-    } // DO STUFF WITH ONLY ROOM NAME HERE
-    */
-    /*
-    for(var name in Game.rooms) {
-      console.log('Examining ' + name + ':');
-      var sources = Game.rooms[name].find(FIND_SOURCES);
-      console.log('There are ' + sources.length + 'sources in this room: ' + sources)
-        for(var spawn_name in Game.spawns) {
-          var spawn = Game.spawns[spawn_name];
-        }
-      }
-      */
-    // TODO NEED THIS
-    //var extensions = Game.spawns.Spawn1.room.find(FIND_MY_STRUCTURES, { // TODO HARDCODED
-    //  filter: { structureType: STRUCTURE_EXTENSION }
-    //});
-    /*
-    // This code needs moved into 'Phase One', similar code written and tested for each phase
-    var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester')
-    var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader')
-    var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder')
-    */
-    // Make sure we have enough harvesters, and if so
-    /*
-    if(harvesters.length < Memory.phase) {
-        harvester.spawn(spawn_name, sources.length) // TODO spawn_name will eventually be more than one!
-    }
-    else { // then we start making upgraders
-
-      if (upgraders.length < (Memory.phase * 2)) {
-          upgrader.spawn(spawn_name, sources.length) // TODO spawn_name will eventually be more than one!
-            }
-      if (builders.length < Memory.phase) { // Change to only spawn for tasks, no work, no creeps
-          var newName = 'Builder' + Game.time;
-          Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName, // TODO
-            {memory: {role: 'builder'}});
-      }
-    }
-    // Code below keeps any units that should exist, at any "phase", acting on their role code
-    for(var name in Game.creeps) {
-        var creep = Game.creeps[name];
-        var source = creep.memory.source;
-        if(creep.memory.role == 'harvester') {
-          harvester.main(creep, sources, source);
-        }
-        if(creep.memory.role == 'upgrader') {
-          upgrader.main(creep, sources, source);
-        }
-        if(creep.memory.role == 'builder') { // TODO fix this one next
-          roleBuilder.run(creep);
-        }
-    }
-    */
     if (scheduler.hundredTicks()) {
       cleanup.memory
       console.log('Garbage Collect')
     }
   }
 } //EOL EOL EOL
+// START 5 TICKS
+
+  // MAIN loop
+
+  // END 5 TICKS
+  /*
+if (harvesters.length < 3) {
+  var components = [WORK,CARRY,MOVE,MOVE]
+  spawner.spawn('harvester', name)
+}
+
+if (upgraders.length < 3) {
+  spawner.spawn('upgrader')
+}
+
+if (builders.length < 2) {
+  spawner.spawn('builder')
+}
+*/
+
+  // These are "Run Once" conditions:
+  // LOOP CONTINUES HERE
+  //mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, name, sources); // TODO finish this and build containers
+  /*
+  // These are for spawning common creeps
+  for(var name in Game.rooms) {
+    for(var spawn_name in Game.spawns) {
+      var sources = Game.rooms[name].find(FIND_SOURCES);
+      console.log(sources.length);
+
+    } // DO STUFF WITH SPAWN HERE
+  } // DO STUFF WITH ONLY ROOM NAME HERE
+  */
+  /*
+  for(var name in Game.rooms) {
+    console.log('Examining ' + name + ':');
+    var sources = Game.rooms[name].find(FIND_SOURCES);
+    console.log('There are ' + sources.length + 'sources in this room: ' + sources)
+      for(var spawn_name in Game.spawns) {
+        var spawn = Game.spawns[spawn_name];
+      }
+    }
+    */
+  // TODO NEED THIS
+  //var extensions = Game.spawns.Spawn1.room.find(FIND_MY_STRUCTURES, { // TODO HARDCODED
+  //  filter: { structureType: STRUCTURE_EXTENSION }
+  //});
+  /*
+  // This code needs moved into 'Phase One', similar code written and tested for each phase
+  var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester')
+  var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader')
+  var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder')
+  */
+  // Make sure we have enough harvesters, and if so
+  /*
+  if(harvesters.length < Memory.phase) {
+      harvester.spawn(spawn_name, sources.length) // TODO spawn_name will eventually be more than one!
+  }
+  else { // then we start making upgraders
+
+    if (upgraders.length < (Memory.phase * 2)) {
+        upgrader.spawn(spawn_name, sources.length) // TODO spawn_name will eventually be more than one!
+          }
+    if (builders.length < Memory.phase) { // Change to only spawn for tasks, no work, no creeps
+        var newName = 'Builder' + Game.time;
+        Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName, // TODO
+          {memory: {role: 'builder'}});
+    }
+  }
+  // Code below keeps any units that should exist, at any "phase", acting on their role code
+  for(var name in Game.creeps) {
+      var creep = Game.creeps[name];
+      var source = creep.memory.source;
+      if(creep.memory.role == 'harvester') {
+        harvester.main(creep, sources, source);
+      }
+      if(creep.memory.role == 'upgrader') {
+        upgrader.main(creep, sources, source);
+      }
+      if(creep.memory.role == 'builder') { // TODO fix this one next
+        roleBuilder.run(creep);
+      }
+  }
+  */
 /*
 function phaseTwo(name, spawn_name, extensions) {
   console.log("Welcome to the jungle!");
