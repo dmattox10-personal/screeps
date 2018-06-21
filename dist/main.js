@@ -43,19 +43,6 @@ module.exports.loop = function () {
     } // DO STUFF WITH ONLY ROOM NAME HERE
     */
 
-
-
-
-    // NEED THIS INFO:
-    //mapper.createMap(ROOM_WIDTH, ROOM_          if(Object.is(spawn.room, room)) {
-            console.log('Examining ' + spawn_name + ':');
-            console.log('Energy Available: ' + room.energyAvailable);
-          }HEIGHT, name);
-
-
-
-
-
     for(var name in Game.rooms) {
       console.log('Examining ' + name + ':');
       var sources = Game.rooms[name].find(FIND_SOURCES);
