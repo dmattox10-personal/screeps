@@ -2,7 +2,7 @@
 var scheduler = require('scheduler')
 // var spawner = require('spawner')
 var cleanup = require('cleanup')
-var harvester = require('harvesters')
+var harvesters = require('harvesters')
 
 const extensionsPerLevel = [0, 0, 5, 10, 20, 30, 40, 50, 60]
 
