@@ -13,7 +13,7 @@ var spawner = {
 
       break;
     }
-    Game.spawns.spawn_name.spawnCreep(body: components, name: name, { memory: { role: role, source: source }})
+    Game.spawns.spawn_name.spawnCreep(components, name, { memory: { role: role, source: source }})
     // Game.spawns.spawn_name.createCreep(components, name, { memory: { role: role, source: source }})
     }
   }
