@@ -19,7 +19,7 @@ module.exports.loop = function () {
         var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader')
         var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder')
         var sources = Game.rooms[name].find(FIND_SOURCES);
-        console.log('Room ' + name + " contains spawn " + spawner[1])
+        console.log('Room ' + name + " contains spawn " + spawner.spawn)
         console.log('There are ' + (harvesters.length + upgraders.length + builders.length) + ' creeps interacting with ' + sources.length + ' sources')
       }
     }
