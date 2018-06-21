@@ -15,7 +15,9 @@ module.exports.loop = function () {
   }
     // These are "Run Once" conditions:
     // LOOP CONTINUES HERE
+    for (var name in Game.rooms) {
     var sources = Game.rooms[name].find(FIND_SOURCES);
+  }
     //mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, name, sources); // TODO finish this and build containers
     /*
     // These are for spawning common creeps
