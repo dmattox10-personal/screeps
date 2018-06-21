@@ -1,10 +1,4 @@
-// MAIN WITH MEMORY MANAGEMENT
-// TODO move Memory.phase control to phase action logic
 
-var upgrader = require('upgraderV2');
-var roleBuilder = require('role.builder');
-var harvester = require('harvesterV2');
-var mapper = require('mapper');
 var scheduler = require('scheduler');
 
 var cleanup = require('cleanup');
@@ -16,38 +10,12 @@ const ROOM_WIDTH = 50;
 
 module.exports.loop = function () {
   if (scheduler.fiveTicks()) {
-    console.log("I am alive!");
+    console.log("pulse")
+    console.log(sources)
   }
     // These are "Run Once" conditions:
-    for(var name in Game.rooms) { // GOOD
-      for(var spawn_name in Game.spawns) {
-        mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, name, sources)
-        if (!Memory.phase || Memory.phase < Game.rooms[name].controller.level) { // THIS line and all below in this nested LOOP, all repeat for each room
-          switch(Memory.phase) { // TODO Map the room, every time we level up!
-            case 1:
-            phaseOne(name, spawn_name, extensionsPerLevel[Game.rooms[name].controller.level]);
-            Memory.phase++;
-            break;
-            case 2: // Put extensions here!
-            phaseTwo(name, spawn_name, extensionsPerLevel[Game.rooms[name].controller.level]);
-            Memory.phase++;
-            break;
-            case 3: // THIS is the one that will matter, write code for
-            phaseThree(name, spawn_name, extensionsPerLevel[Game.rooms[name].controller.level]);
-            Memory.phase++;
-            break;
-            case 4:
-            phaseFour(name, spawn_name, extensionsPerLevel[Game.rooms[name].controller.level]);
-            Memory.phase++;
-            break;
-          }
-        }
-        //Memory.phase = Game.rooms[name].controller.level // TODO MOVE THIS TO PHASE LOGIC IN CASE WE NEED TO RESET!!!
-      } // DO STUFF WITH SPAWN HERE
-    } // DO STUFF WITH ONLY ROOM NAME HERE
     // LOOP CONTINUES HERE
     var sources = Game.rooms[name].find(FIND_SOURCES);
-
     //mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, name, sources); // TODO finish this and build containers
     /*
     // These are for spawning common creeps
@@ -90,6 +58,7 @@ module.exports.loop = function () {
     var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
     var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
     // Make sure we have enough harvesters, and if so
+    /*
     if(harvesters.length < Memory.phase) {
         harvester.spawn(spawn_name, sources.length) // TODO spawn_name will eventually be more than one!
     }
@@ -118,17 +87,20 @@ module.exports.loop = function () {
           roleBuilder.run(creep);
         }
     }
+    */
     if (scheduler.hundredTicks()) {
-      cleanup.memory;
+      cleanup.memory
+      console.log('Garbage Collect')
     }
-}
-
+} //EOL EOL EOL
+/*
 function phaseTwo(name, spawn_name, extensions) {
   console.log("Welcome to the jungle!");
   var sources = Game.rooms[name].find(FIND_SOURCES);
   mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, name, sources); // TODO spawn_name will eventually be more than one!
 }
-
+*/
+/*
 function phaseOne(name, spawn_name, extensions) { // TODO spawn_name will eventually be more than one!
   console.log(name);
   // IF number of extensions is lest than extensions
@@ -139,12 +111,13 @@ function phaseOne(name, spawn_name, extensions) { // TODO spawn_name will eventu
   for (var i = 0; i < extensions; i++) {
   Game.rooms[name].createConstructionSite(5, (i + 37), STRUCTURE_EXTENSION); //TODO HARDCODED
   }
-  */
 }
-
+*/
+/*
 function phaseThree(name, spawn_name, extensions) {
   console.log(name);
 }
+*/
 /*
 // DEFENSE CODE ================================================================
 var roleHarvester = require('role.harvester');
