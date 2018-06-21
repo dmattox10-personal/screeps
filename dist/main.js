@@ -2,7 +2,7 @@
 var scheduler = require('scheduler')
 // var spawner = require('spawner')
 var cleanup = require('cleanup')
-var harvesters = require('harvesters')
+var harvesterV3 = require('harvesterV3')
 
 const extensionsPerLevel = [0, 0, 5, 10, 20, 30, 40, 50, 60]
 
@@ -23,7 +23,7 @@ module.exports.loop = function () {
           var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader')
           var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder')
           if (harvesters.length < 3) {
-            harvesters.spawn(spawn_name)
+            harvesterV3.spawn(spawn_name)
           }
 
         }
