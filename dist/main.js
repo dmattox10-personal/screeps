@@ -21,17 +21,9 @@ module.exports.loop = function () {
         var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader')
         var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder')
         if (harvesters.length < 3) {
+          console.log(harvesters)
           harvesterV3.spawn(spawn_name)
         }
-        if (scheduler.fiveTicks) {
-
-          }
-          for (var i = 0; i < harvesters.length; i++) {
-            console.log(harvesters[i])
-
-          }
-
-
       }
   // START 5 TICKS
 
