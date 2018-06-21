@@ -24,8 +24,8 @@ module.exports.loop = function () {
           harvesterV3.spawn(spawn_name)
         }
         if (scheduler.fiveTicks) {
-          for (var harvester in harvesters) {
-            console.log(harvester)
+          for (var i = 0; i < harvesters.length; i++) {
+            console.log(harvesters[i])
 
           }
           }
