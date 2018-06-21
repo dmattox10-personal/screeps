@@ -23,16 +23,17 @@ module.exports.loop = function () {
         if (harvesters.length < 3) {
           harvesterV3.spawn(spawn_name)
         }
+        if (scheduler.fiveTicks) {
+          for (var harvester in harvesters) {
+            harvesterV3.run(harvester)
+
+          }
+          }
 
 
       }
   // START 5 TICKS
-  if (scheduler.fiveTicks) {
-    for (var harvester in harvesters) {
-      harvesterV3.run(harvester)
 
-    }
-    }
     // MAIN loop
 
     // END 5 TICKS
