@@ -1,7 +1,8 @@
 
 var scheduler = require('scheduler')
-var spawner = require('spawner')
+// var spawner = require('spawner')
 var cleanup = require('cleanup')
+var harvester = require('harvesterV2')
 
 const extensionsPerLevel = [0, 0, 5, 10, 20, 30, 40, 50, 60]
 
@@ -21,11 +22,10 @@ module.exports.loop = function () {
           var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester')
           var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader')
           var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder')
-          console.log('Room ' + room_name + " contains spawn " + spawn_name)
-          console.log('There are ' + (harvesters.length + upgraders.length + builders.length) + ' creeps')
           if (harvesters.length < 3) {
-            spawner.spawn(spawn_name, 'harvester')
+            harvesters.spawn(spawn_name)
           }
+          
         }
       }
     }
