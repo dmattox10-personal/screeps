@@ -4,7 +4,7 @@ var harvesters = {
     var components = [WORK,CARRY,MOVE,MOVE]
     Game.spawns[spawn_name].createCreep(components, name, { memory: { role: 'harvester' }})
     }
-    run: (creep) => {
+  run: (creep) => {
       if(creep.carry.energy < creep.carryCapacity) {
 
             var sources = creep.room.find(FIND_SOURCES);

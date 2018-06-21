@@ -31,7 +31,7 @@ module.exports.loop = function () {
     }
     // MAIN loop
     for (var harvester in harvesters) {
-      harvesters.run(harvester)
+      harvesterV3.run(harvester)
     }
     // END 5 TICKS
     /*
