@@ -55,7 +55,7 @@ module.exports.loop = function () {
 
 
     for(var name in Game.rooms) {
-      console.log('Examining ' + room_name + ':');
+      console.log('Examining ' + name + ':');
       var sources = Game.rooms[name].find(FIND_SOURCES);
         for(var spawn_name in Game.spawns) {
           var spawn = Game.spawns[spawn_name];
