@@ -14,13 +14,13 @@ const ROOM_WIDTH = 50
 // var source = sources[Math.floor(Math.random() * sources.length)]
 
 module.exports.loop = function () {
-  var harvesters = _.filter(Game.creeps, (creep) => creep.role == 'harvester')
-  console.log(harvesters)
-  console.log(harvesters.length)
+
 // Do EVERYTHING per room
   for(var room_name in Game.rooms) {
       for(var spawn_name in Game.spawns) {
-
+        var harvesters = _.filter(Game.creeps, (creep) => creep.role == 'harvester')
+        console.log(harvesters)
+        console.log(harvesters.length)
         var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader')
         var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder')
         //if (harvesters.length < 3) {
