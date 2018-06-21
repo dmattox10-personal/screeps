@@ -3,7 +3,7 @@ var harvesters = {
     var name = 'harvester' + Game.time // TODO switch to UUID-Lib
     var components = [WORK,CARRY,MOVE,MOVE]
     Game.spawns[spawn_name].createCreep(components, name, { memory: { role: 'harvester' }})
-    }
+  },
   run: (creep) => {
       if(creep.carry.energy < creep.carryCapacity) {
 
