@@ -13,6 +13,7 @@ module.exports.loop = function () {
     console.log("pulse")
   }
   for(var name in Game.rooms) {
+    console.log(Game.rooms.name)
       for(var spawn_name in Game.spawns) {
         var spawner = Game.spawns[spawn_name]; //Can I do this?
         var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester')
