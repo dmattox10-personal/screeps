@@ -1,23 +1,37 @@
 
-var scheduler = require('scheduler');
+var scheduler = require('scheduler')
+//var spawner = require('spawner')
+var cleanup = require('cleanup')
 
-var cleanup = require('cleanup');
+const extensionsPerLevel = [0, 0, 5, 10, 20, 30, 40, 50, 60]
 
-const extensionsPerLevel = [0, 0, 5, 10, 20, 30, 40, 50, 60];
-
-const ROOM_HEIGHT = 50;
-const ROOM_WIDTH = 50;
+const ROOM_HEIGHT = 50
+const ROOM_WIDTH = 50
 
 module.exports.loop = function () {
-  if (scheduler.fiveTicks()) {
+  if (scheduler.fiveTicks) {
     console.log("pulse")
     console.log(sources)
   }
+  var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester')
+  var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader')
+  var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder')
+  /*
+  if (harvesters.length < 3) {
+    spawner.spawn('harvester')
+  }
+
+  if (upgraders.length < 3) {
+    spawner.spawn('upgrader')
+  }
+
+  if (builders.length < 2) {
+    spawner.spawn('builder')
+  }
+  */
+
     // These are "Run Once" conditions:
     // LOOP CONTINUES HERE
-    for (var name in Game.rooms) {
-    var sources = Game.rooms[name].find(FIND_SOURCES);
-  }
     //mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, name, sources); // TODO finish this and build containers
     /*
     // These are for spawning common creeps
@@ -39,7 +53,7 @@ module.exports.loop = function () {
 
 
 
-    /*
+
     for(var name in Game.rooms) {
       console.log('Examining ' + room_name + ':');
         for(var spawn_name in Game.spawns) {
@@ -50,15 +64,16 @@ module.exports.loop = function () {
           }
         }
       }
-      */
     // TODO NEED THIS
     //var extensions = Game.spawns.Spawn1.room.find(FIND_MY_STRUCTURES, { // TODO HARDCODED
     //  filter: { structureType: STRUCTURE_EXTENSION }
     //});
+    /*
     // This code needs moved into 'Phase One', similar code written and tested for each phase
-    var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
-    var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
-    var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
+    var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester')
+    var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader')
+    var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder')
+    */
     // Make sure we have enough harvesters, and if so
     /*
     if(harvesters.length < Memory.phase) {
