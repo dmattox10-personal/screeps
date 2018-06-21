@@ -12,12 +12,21 @@ module.exports.loop = function () {
   if (scheduler.fiveTicks) {
     console.log("pulse")
   }
-  var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester')
-  var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader')
-  var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder')
-  /*
+  for(var name in Game.rooms) {
+      for(var spawn_name in Game.spawns) {
+        var spawn_name = Game.spawns[spawn_name]; //Can I do this?
+        var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester')
+        var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader')
+        var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder')
+        var sources = Game.rooms[name].find(FIND_SOURCES);
+        console.log('Room ' + name + " contains spawn " + spawn_name)
+        console.log('There are ' + (harvesters.length + upgraders.length + builders.length) + ' interacting with ' + sources.length + ' sources')
+      }
+    }
+    /*
   if (harvesters.length < 3) {
-    spawner.spawn('harvester')
+    var components = [WORK,CARRY,MOVE,MOVE]
+    spawner.spawn('harvester', name)
   }
 
   if (upgraders.length < 3) {
@@ -42,7 +51,7 @@ module.exports.loop = function () {
       } // DO STUFF WITH SPAWN HERE
     } // DO STUFF WITH ONLY ROOM NAME HERE
     */
-
+    /*
     for(var name in Game.rooms) {
       console.log('Examining ' + name + ':');
       var sources = Game.rooms[name].find(FIND_SOURCES);
@@ -51,6 +60,7 @@ module.exports.loop = function () {
           var spawn = Game.spawns[spawn_name];
         }
       }
+      */
     // TODO NEED THIS
     //var extensions = Game.spawns.Spawn1.room.find(FIND_MY_STRUCTURES, { // TODO HARDCODED
     //  filter: { structureType: STRUCTURE_EXTENSION }
