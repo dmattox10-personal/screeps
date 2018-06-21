@@ -16,7 +16,7 @@ const ROOM_WIDTH = 50
 module.exports.loop = function () {
 // Do EVERYTHING per room
   for(var room_name in Game.rooms) {
-    console.log(room_name.creeps)
+    console.log(room_name)
       for(var spawn_name in Game.spawns) {
         var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester')
         var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader')
