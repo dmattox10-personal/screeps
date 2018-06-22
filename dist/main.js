@@ -1,9 +1,8 @@
 
 var scheduler = require('scheduler')
-// var spawner = require('spawner')
 var cleanup = require('cleanup')
 var harvesterV3 = require('harvesterV3')
-
+var upgraderV3 = require('upgraderV3')
 const extensionsPerLevel = [0, 0, 5, 10, 20, 30, 40, 50, 60]
 
 const ROOM_HEIGHT = 50
@@ -19,12 +18,13 @@ module.exports.loop = function () {
   for(var room_name in Game.rooms) {
       for(var spawn_name in Game.spawns) {
         var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester')
-        console.log(harvesters)
-        console.log(harvesters.length)
         var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader')
         var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder')
         if (harvesters.length < 3) {
           harvesterV3.spawn(spawn_name)
+        }
+        if (upgraders.length < 3) {
+          upgraderV3.spawn(spawn_name)
         }
       }
 
@@ -39,7 +39,7 @@ module.exports.loop = function () {
            harvesterV3.run(creep);
        }
        if(creep.memory.role == 'upgrader') {
-           roleUpgrader.run(creep);
+           upgraderV3.run(creep);
        }
        if(creep.memory.role == 'builder') {
            roleBuilder.run(creep);
