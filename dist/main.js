@@ -33,6 +33,9 @@ module.exports.loop = function () {
       console.log('Garbage Collect')
     }
   }
+  for (var name in Room.creeps) {
+    harvesterV3.run(name)
+  }
 } //EOL EOL EOL
 // START 5 TICKS
 
