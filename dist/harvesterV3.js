@@ -2,7 +2,7 @@ var harvesters = {
   spawn: (spawn_name) => {
     var name = 'harvester' + Game.time // TODO switch to UUID-Lib
     var components = [WORK,CARRY,MOVE]
-    Game.spawns[spawn_name].spawnCreep(components, name)
+    Game.spawns[spawn_name].spawnCreep(components, name, {memory: {role: 'harvester'}})
     Game.creeps[name].memory.role = 'harvester'
   },
   run: (creep) => {
