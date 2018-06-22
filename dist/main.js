@@ -37,7 +37,6 @@ var sources
   for(var name in Game.creeps) {
        var creep = Game.creeps[name];
        sources = creep.room.find(FIND_SOURCES);
-       console.log(sources)
        if(creep.memory.role == 'harvester') {
            harvesterV3.run(creep);
        }
