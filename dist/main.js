@@ -31,7 +31,7 @@ module.exports.loop = function () {
     }
   } // hundredTicks
 
-  if (scheduler.tenTicks()){
+  // This cannot be scheduled !!!
   for(var name in Game.creeps) {
        var creep = Game.creeps[name];
        if(creep.memory.role == 'harvester') {
@@ -44,7 +44,6 @@ module.exports.loop = function () {
            roleBuilder.run(creep);
        }
      }
-   } // tenTicks
 } //EOL EOL EOL
 // START 5 TICKS
 
