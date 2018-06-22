@@ -29,4 +29,4 @@ var upgraders = {
   }
 }
 
-module.exports = harvesters
+module.exports = upgraders
