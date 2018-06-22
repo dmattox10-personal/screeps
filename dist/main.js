@@ -33,10 +33,18 @@ module.exports.loop = function () {
       console.log('Garbage Collect')
     }
   }
-  for (var name in Room.creeps) {
-    console.log(name)
-    harvesterV3.run(name)
-  }
+  for(var name in Game.creeps) {
+       var creep = Game.creeps[name];
+       if(creep.memory.role == 'harvester') {
+           harvesterV3.run(creep);
+       }
+       if(creep.memory.role == 'upgrader') {
+           roleUpgrader.run(creep);
+       }
+       if(creep.memory.role == 'builder') {
+           roleBuilder.run(creep);
+       }
+   }
 } //EOL EOL EOL
 // START 5 TICKS
 
