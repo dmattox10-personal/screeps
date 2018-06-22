@@ -3,6 +3,7 @@ var scheduler = require('scheduler')
 var cleanup = require('cleanup')
 var harvesterV3 = require('harvesterV3')
 var upgraderV3 = require('upgraderV3')
+var mapper = require('mapper')
 const extensionsPerLevel = [0, 0, 5, 10, 20, 30, 40, 50, 60]
 
 const ROOM_HEIGHT = 50
@@ -13,7 +14,7 @@ const ROOM_WIDTH = 50
 // var source = sources[Math.floor(Math.random() * sources.length)]
 
 module.exports.loop = function () {
-
+var sources
 // Do EVERYTHING per room
   if (scheduler.hundredTicks()) {
   for(var room_name in Game.rooms) {
@@ -21,6 +22,7 @@ module.exports.loop = function () {
         var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester')
         var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader')
         var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder')
+        mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, room_name, sources);
         if (harvesters.length < 3) {
           harvesterV3.spawn(spawn_name)
         }
@@ -34,6 +36,8 @@ module.exports.loop = function () {
   // This cannot be scheduled !!!
   for(var name in Game.creeps) {
        var creep = Game.creeps[name];
+       sources = creep.room.find(FIND_SOURCES);
+       console.log(sources)
        if(creep.memory.role == 'harvester') {
            harvesterV3.run(creep);
        }
