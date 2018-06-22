@@ -34,6 +34,7 @@ module.exports.loop = function () {
     }
   }
   for (var name in Room.creeps) {
+    console.log(name)
     harvesterV3.run(name)
   }
 } //EOL EOL EOL
