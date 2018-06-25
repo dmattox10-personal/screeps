@@ -34,11 +34,12 @@ var sources
   } // hundredTicks
 
   // This cannot be scheduled !!!
+  for (var room_name in Game.rooms) {
   for(var name in Game.creeps) {
        var creep = Game.creeps[name];
        sources = creep.room.find(FIND_SOURCES);
        if(creep.memory.role == 'harvester') {
-           harvesterV3.run(creep)
+           harvesterV3.run(creep, room_name)
        }
        if(creep.memory.role == 'upgrader') {
            upgraderV3.run(creep)
@@ -50,6 +51,7 @@ var sources
        */
        tools.setup()
      }
+   }
 
      if (scheduler.thousandTicks()) {
        mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, room_name, sources)

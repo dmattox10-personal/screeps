@@ -4,10 +4,10 @@ var harvesters = {
     var components = [WORK,CARRY,MOVE]
     Game.spawns[spawn_name].spawnCreep(components, name, {memory: {role: 'harvester'}})
   },
-  run: (creep) => {
+  run: (creep, room_name) => {
       if(creep.carry.energy < creep.carryCapacity) {
-          //MAP THE FUCKING SOURCES IN ROOM MEMORY!!!
-            var sources = creep.room.find(FIND_SOURCES)
+          // TODO Pass in room name!
+            var sources = Memory.rooms.room_name.sources
             if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
             }
