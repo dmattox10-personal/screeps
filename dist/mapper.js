@@ -66,6 +66,7 @@ function NRG(x, y, name) { // Not Yet Implemented
 }
 
 function storeTile(name, x, y) {
+  // TODO rewite to push
   Memory.map[Memory.map.length] = {"name":name, "pos": {"x": x, "y": y}};
   //console.log(Memory.map[Memory.map.length]);
 }
