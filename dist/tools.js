@@ -3,7 +3,8 @@ var tools = {
 
     for (var room_name in Game.rooms) {
       for (var spawn_name in Game.spawns) {
-        console.log(Game.rooms)
+        let current_room = Game.rooms[room_name]
+        console.log(current_room)
       } // Game.spawns
     } // Game.rooms
   } // Setup
