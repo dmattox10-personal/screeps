@@ -13,7 +13,7 @@ var tools = {
         if (!Memory.colonies[current_colony_name]) {
           let sources = Game.rooms[current_colony_name].find(FIND_SOURCES); // DNM
           current_colony_name.id = 0
-          Memory.colonies.push(current_colony_name)
+          Memory.colonies.current_colony_name = current_colony_name
           console.log("added colony " + current_colony_name + " to colonies object")
         }
       } // Game.spawns
