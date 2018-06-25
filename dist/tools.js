@@ -4,7 +4,7 @@ var tools = {
     for (var room_name in Game.rooms) {
       console.log(room_name)
       for (var spawn_name in Game.spawns) {
-        if (!Memory.myRooms[room_name]) {
+        if (Memory.myRooms[room_name] != room_name) {
           console.log(room_name)
         // Memory.myRooms.local_name = {}
       // Memory.myRooms.local_name.sources = Game.rooms.local_name.find(FIND_SOURCES)
