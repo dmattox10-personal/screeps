@@ -6,7 +6,7 @@ var tools = {
         let current_room = Game.rooms[room_name]
         let current_room_name = current_room.name
         //console.log(current_room_name)
-        var sources = current_room_name.find(FIND_SOURCES);
+        var sources = room.current_room_name.find(FIND_SOURCES);
         Memory.rooms[current_room_name].sources = sources
       } // Game.spawns
     } // Game.rooms
