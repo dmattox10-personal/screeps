@@ -8,8 +8,8 @@ var harvesters = {
       if(creep.carry.energy < creep.carryCapacity) {
           // TODO Pass in room name!
             var sources = Memory.rooms.room_name.sources
-            if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
+            if(creep.harvest(Memory.rooms.room_name.sources[0]) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(Memory.rooms.room_name.sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
             }
         } // if creep has room for energy
         else {

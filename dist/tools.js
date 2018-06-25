@@ -6,8 +6,8 @@ var tools = {
 
 
         }
-        if (!Memory.rooms.room_name) {
-          Memory.rooms.room_name = {}
+        if (!Memory.rooms[room_name]) {
+          Memory.rooms = {}
           // Memory.rooms[Memory.rooms.length] = room_name
           // Get all the info we need to save, don't map in here!
           var sources = Game.rooms[room_name].find(FIND_SOURCES)
