@@ -8,7 +8,9 @@ var tools = {
         let sources = Game.rooms[current_colony_name].find(FIND_SOURCES); // DNM
         if (!Memory.colonies) {
           Memory.colonies = {}
+          Memory.colonies.colony = {}
           console.log("colonies inserted into memory")
+
         }
         if (!Memory.colonies.colony.current_colony_name) {
           Memory.colonies.colony[Memory.colonies.length] = current_colony_name
