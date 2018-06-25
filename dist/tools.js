@@ -10,3 +10,5 @@ var tools = {
     } // Game.rooms
   }
 } //END TOOLS
+
+module.exports = tools
