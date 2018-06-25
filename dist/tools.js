@@ -9,7 +9,7 @@ var tools = {
           console.log(sources)
 
         }
-          Memory.rooms.obj_name.sources = sources
+          Memory.rooms[obj_name].sources = sources
           // Memory.rooms[Memory.rooms.length] = room_name
           // Get all the info we need to save, don't map in here!
           // console.log(sources)
