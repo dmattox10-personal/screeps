@@ -2,10 +2,11 @@ var tools = {
   setup: () => {
 
     for (var room_name in Game.rooms) {
+      var local_name = room_name
       for (var spawn_name in Game.spawns) {
-        if (!Memory.myRooms[this.room_name]) {
-        Memory.myRooms[this.room_name] = {}
-        Memory.myRooms[this.room_name].sources = Game.rooms[room_name].find(FIND_SOURCES)
+        if (!Memory.myRooms[local_name]) {
+        Memory.myRooms[local_name] = {}
+        Memory.myRooms[local_name].sources = Game.rooms[local_name].find(FIND_SOURCES)
           // Memory.rooms[Memory.rooms.length] = room_name
           // Get all the info we need to save, don't map in here!
           // console.log(sources)
