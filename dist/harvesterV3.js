@@ -10,8 +10,10 @@ var harvesters = {
             //var sources = Memory.rooms.room_name.sources
             var sources = creep.room.find(FIND_SOURCES);
 
-            if(creep.harvest(Memory.rooms.room_name.sources[0]) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(Memory.rooms.room_name.sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
+            //if(creep.harvest(Memory.rooms.room_name.sources[0]) == ERR_NOT_IN_RANGE) {
+            if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
+                //creep.moveTo(Memory.rooms.room_name.sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
+                creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}})
             }
         } // if creep has room for energy
         else {
