@@ -6,6 +6,7 @@ var tools = {
         let current_room = Game.rooms[room_name]
         let current_room_name = current_room.name
         console.log(current_room_name)
+        console.log(Game.rooms.current_room_name)
       } // Game.spawns
     } // Game.rooms
   } // Setup
