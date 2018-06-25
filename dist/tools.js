@@ -5,7 +5,7 @@ var tools = {
       for (var spawn_name in Game.spawns) {
         if (!Memory.myRooms[room_name]) {
           //Memory.rooms[obj_name] = room_name
-        let  Memory.myRooms[room_name]
+        let  Memory.myRooms[room_name] = room_name
         Memory.myRooms[room_name].sources = Game.rooms[room_name].find(FIND_SOURCES)
           // Memory.rooms[Memory.rooms.length] = room_name
           // Get all the info we need to save, don't map in here!
