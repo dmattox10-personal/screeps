@@ -10,14 +10,14 @@ var tools = {
           console.log("colonies inserted into memory")
 
         }
-        if (!Memory.colonies[current_colony_name]) {
+        var searchColonies = _.filter(Memory.colonies, (Memory.colony.name) =>  == current_colony_name)
+        if (searchColonies) {
           let sources = Game.rooms[current_colony_name].find(FIND_SOURCES); // DNM
           let colonyEntry = {}
           colonyEntry.name = current_colony_name
           colonyEntry.id = Memory.colonies.length
           colonyEntry.sources = sources
           Memory.colonies.push = colonyEntry
-          console.log("added colony " + current_colony_name + " to colonies object")
         }
       } // Game.spawns
     } // Game.rooms
