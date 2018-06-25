@@ -18,6 +18,7 @@ module.exports.loop = function () {
 var sources
 // Do EVERYTHING per room
   if (scheduler.hundredTicks()) {
+           cleanup.deadCreeps()
   for(var room_name in Game.rooms) {
       for(var spawn_name in Game.spawns) {
         var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester')
@@ -55,7 +56,6 @@ var sources
 
      if (scheduler.thousandTicks()) {
        mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, room_name, sources)
-       cleanup.deadCreeps()
      }
 } //EOL EOL EOL
 // START 5 TICKS
