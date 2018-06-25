@@ -6,7 +6,7 @@ var tools = {
           // Get all the info we need to save, don't map in here!
           var sources = Game.rooms[room_name].find(FIND_SOURCES)
           //console.log(sources)
-          Memory.push(room_name)
+          Memory[Memory.length] = room_name
           Memory[room_name].sources = sources
         }
       } // Game.spawns
