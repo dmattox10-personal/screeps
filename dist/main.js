@@ -4,6 +4,7 @@ var cleanup = require('cleanup')
 var harvesterV3 = require('harvesterV3')
 var upgraderV3 = require('upgraderV3')
 var mapper = require('mapper')
+var tools = require('tools')
 const extensionsPerLevel = [0, 0, 5, 10, 20, 30, 40, 50, 60]
 
 const ROOM_HEIGHT = 50
@@ -22,7 +23,6 @@ var sources
         var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester')
         var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader')
         var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder')
-        mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, room_name, sources);
         if (harvesters.length < 3) {
           harvesterV3.spawn(spawn_name)
         }
@@ -38,14 +38,22 @@ var sources
        var creep = Game.creeps[name];
        sources = creep.room.find(FIND_SOURCES);
        if(creep.memory.role == 'harvester') {
-           harvesterV3.run(creep);
+           harvesterV3.run(creep)
        }
        if(creep.memory.role == 'upgrader') {
-           upgraderV3.run(creep);
+           upgraderV3.run(creep)
        }
+       /*
        if(creep.memory.role == 'builder') {
            roleBuilder.run(creep);
        }
+       */
+       tools.setup()
+     }
+
+     if (scheduler.thousandTicks()) {
+       mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, room_name, sources)
+       cleanup.deadCreeps()
      }
 } //EOL EOL EOL
 // START 5 TICKS

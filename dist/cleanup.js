@@ -1,5 +1,5 @@
 var cleanup = {
-  memory: function() {
+  deadCreeps: function() {
     /*
     // Set ZERO
     if (!Memory.phase) {
