@@ -1,3 +1,4 @@
+// TODO Eventually, check for memory.colonies against current room name, to never run this again?
 var tools = {
   setup: () => {
 
@@ -17,6 +18,7 @@ var tools = {
           // TODO Map row by row, saving the NEXT row as a variable!
           // TODO set colony.level to RCL?
           // TODO Store the map as an array on the colony instead of solo
+          // TODO Harvesters level?
           Memory.colonies.push(colony)
         }
         else {
