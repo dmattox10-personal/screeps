@@ -13,7 +13,7 @@ var tools = {
           console.log("Colony Does Not Exist")
           let colony = {}
           colony.name = current_colony_name
-          colony.sources = Game.room.find(FIND_SOURCES)
+          colony.sources = Game.rooms.current_colony_name.find(FIND_SOURCES)
           Memory.colonies.push(colony)
         }
         else {
