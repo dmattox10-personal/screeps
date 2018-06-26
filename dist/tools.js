@@ -35,9 +35,9 @@ var tools = {
   } // Setup
 } //END TOOLS
 
-function search(colony_name, Memory.colonies){
-    for (var i=0; i < Memory.colonies.length; i++) {
-        if (Memory.colonies[i].name === colony_name) {
+function search(colony_name, colonyArray){
+    for (var i=0; i < colonyArray.length; i++) {
+        if (colonyArray[i].name === colony_name) {
             return true
         }
         return false
