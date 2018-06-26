@@ -1,3 +1,15 @@
+// maritime Harvesters
+// wartime Harvesters
+// upgraders for both
+// builders for both
+// explorers with claim component
+// Medic
+// Smasher (POWER)
+// scout (SPEED) with CLAIM
+// Hauler
+// balanced fighter
+// PennDOT
+// Engineer
 
 var scheduler = require('scheduler')
 var cleanup = require('cleanup')
@@ -5,8 +17,14 @@ var harvesterV3 = require('harvesterV3')
 var upgraderV3 = require('upgraderV3')
 var mapper = require('mapper')
 var tools = require('tools')
-const extensionsPerLevel = [0, 0, 5, 10, 20, 30, 40, 50, 60]
 
+const spawnsPerLevel = [1,1,1,1,1,1,2,3]
+const extensionsPerLevel = [0, 0, 5, 10, 20, 30, 40, 50, 60]
+const extensionsCapacityPerLevel = [0,0,0,50,50,50,50,50,100,200]
+const rampartHitsPerLevel = [0,0,0,1,3,10,30,100,300]
+const towersPerLevel = [0,0,0,1,1,2,2,3,6]
+const linksPerLevel = [0,0,0,0,0,2,3,4,6]
+const labsPerLevel = [0,0,0,0,0,0,3,6,10]
 const ROOM_HEIGHT = 50
 const ROOM_WIDTH = 50
 
@@ -24,10 +42,10 @@ var sources
         var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester')
         var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader')
         var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder')
-        if (harvesters.length < 3) {
+        if (harvesters.length < 5) {
           harvesterV3.spawn(spawn_name)
         }
-        if (upgraders.length < 3) {
+        if (upgraders.length < 5) {
           upgraderV3.spawn(spawn_name)
         }
       }

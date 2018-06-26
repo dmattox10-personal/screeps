@@ -24,17 +24,6 @@ var tools = {
         else {
           console.log("Colony Exists!")
         }
-        /*
-        var searchColonies = _.filter(Memory.colonies, (Memory.colony.name) =>  == current_colony_name)
-        if (searchColonies) {
-          let sources = Game.rooms[current_colony_name].find(FIND_SOURCES); // DNM
-          let colonyEntry = {}
-          colonyEntry.name = current_colony_name
-          colonyEntry.id = Memory.colonies.length
-          colonyEntry.sources = sources
-          Memory.colonies.push = colonyEntry
-        }
-        */
       } // Game.spawns
     } // Game.rooms
   } // Setup
