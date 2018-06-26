@@ -8,7 +8,16 @@ var tools = {
         if (!Memory.colonies) {
           Memory.colonies = []
           console.log("colonies inserted into memory")
-
+        }
+        if (!search(colony_name)) {
+          console.log("Colony Does Not Exist")
+          let colony = {}
+          colony.name = current_colony_name
+          colony.sources = Game.room.find(FIND_SOURCES)
+          Memory.colonies.push(colony)
+        }
+        else {
+          console.log("Colony Exists!")
         }
         /*
         var searchColonies = _.filter(Memory.colonies, (Memory.colony.name) =>  == current_colony_name)
@@ -25,5 +34,14 @@ var tools = {
     } // Game.rooms
   } // Setup
 } //END TOOLS
+
+function search(colony_name, Memory.colonies){
+    for (var i=0; i < Memory.colonies.length; i++) {
+        if (Memory.colonies[i].name === colony_name) {
+            return true
+        }
+        return false
+    }
+}
 
 module.exports = tools
