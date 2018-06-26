@@ -9,7 +9,7 @@ var tools = {
           Memory.colonies = []
           console.log("colonies inserted into memory")
         }
-        if (!search(colony_name)) {
+        if (!search(colony_name, Memory.colonies)) {
           console.log("Colony Does Not Exist")
           let colony = {}
           colony.name = current_colony_name
