@@ -14,6 +14,9 @@ var tools = {
           let colony = {}
           colony.name = current_colony_name
           colony.sources = Game.rooms[current_colony_name].find(FIND_SOURCES)
+          // TODO Map row by row, saving the NEXT row as a variable!
+          // TODO set colony.level to RCL?
+          // TODO Store the map as an array on the colony instead of solo
           Memory.colonies.push(colony)
         }
         else {
