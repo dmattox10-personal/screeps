@@ -20,7 +20,6 @@ var tools = {
           colony.mapRow = 0
           colony.buildTiles = []
           colony.structures = []
-          colony.creeps = []
           colony.spawns = []
           colony.spawns[0] = spawn_name
           // TODO Map row by row, saving the NEXT row as a variable!
