@@ -32,9 +32,12 @@ var tools = {
     } // Game.rooms
   }, // Setup
   map: (name, row, sources) => {
-    console.log(row)
+    for (var x = 0; x < ROOM_WIDTH; x++) {
+        let currentTile = Game.map.getTerrainAt(x, row, name)
+        console.log(currentTile)
+    }
 
-  }
+  },
 } //END TOOLS
 
 let search = (colony_name, colonyArray) => {
@@ -46,6 +49,17 @@ let search = (colony_name, colonyArray) => {
     }
 }
 
+let nearWall = (name, row, column) => {
 
+}
+let NRG = (name, row, column) => {
+
+}
+let empty = (name, row, column) => {
+
+}
+storeTile = (row, column) => {
+  return true
+}
 
 module.exports = tools
