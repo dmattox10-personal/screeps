@@ -11,7 +11,7 @@ var cleanup = {
             delete Memory.creeps[name]
       }
     }
-  }
+  },
   preventShardStorage: function() {
     if (Memory.colonies.length > 100) {
       delete Memory.colonies
