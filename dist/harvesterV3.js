@@ -3,6 +3,18 @@ var harvesters = {
     var name = 'harvester' + Game.time // TODO switch to UUID-Lib
     var components = [WORK,CARRY,MOVE]
     Game.spawns[spawn_name].spawnCreep(components, name, {memory: {role: 'harvester'}})
+    for (var i = 0; i < Memory.colonies.length; i++) {
+      for (var j = 0; j < Memory.colonies[i].spawns.length; j++) {
+        if (Memory.colonies[i].spawns[j].name === spawn_name) {
+          let creep = []
+          creep.name = name
+          creep.level = 1
+          creep.role = 'harvester'
+          creep.push(Memory.colonies[i].creeps)
+        }
+      }
+    }
+
   },
   run: (creep, room_name) => {
       if(creep.carry.energy < creep.carryCapacity) {

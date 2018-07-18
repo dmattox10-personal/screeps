@@ -33,7 +33,7 @@ const ROOM_WIDTH = 50
 // var source = sources[Math.floor(Math.random() * sources.length)]
 
 module.exports.loop = function () {
-var sources
+  tools.setup()
 // Do EVERYTHING per room
   if (scheduler.hundredTicks()) {
            cleanup.deadCreeps()
@@ -52,13 +52,13 @@ var sources
       }
     }
   } // hundredTicks
-
+  /*
   // This cannot be scheduled !!!
   for (var room_name in Game.rooms) {
   for(var name in Game.creeps) {
        var creep = Game.creeps[name];
        // TODO use colony source map
-       sources = creep.room.find(FIND_SOURCES);
+       let sources = creep.room.find(FIND_SOURCES)
        if(creep.memory.role == 'harvester') {
            harvesterV3.run(creep, room_name)
        }
@@ -70,11 +70,29 @@ var sources
            roleBuilder.run(creep);
        }
        */
-       tools.setup()
+       //tools.setup()
+       /*
      }
    }
-
+*/
+   // Instead of looping over all rooms to find mine, let's use our colonies memory object!
+   for (var i = 0; i < Memory.colonies.length) {
+     let room_name = Memory.colonies[i].name
+     for (var j = 0; j < Memory.colonies[i].creeps.length; j++ ) {
+       let creep_name = Memory.colonies[i].creeps[j].name
+       let creep = Game.creeps[name]
+       // RUN ALL CREEPS HERE
+       if(creep.memory.role == 'harvester') {
+           harvesterV3.run(creep, room_name)
+       }
+       if(creep.memory.role == 'upgrader') {
+           upgraderV3.run(creep)
+       }
+     }
+   }
+/*
      if (scheduler.thousandTicks()) {
        mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, room_name, sources)
      }
+*/
 } //EOL EOL EOL
