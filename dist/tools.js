@@ -59,10 +59,10 @@ let search = (colony_name, colonyArray) => {
     }
 }
 let nearWall = (x, y, name) => {
-  if (Game.map.getTerrainAt(x + 2, y, name) == 'wall' ||
-      Game.map.getTerrainAt(x - 2, y, name) == 'wall' ||
-      Game.map.getTerrainAt(x, y + 2, name) == 'wall' ||
-      Game.map.getTerrainAt(x, y - 2, name) == 'wall') {
+  if (Game.map.getTerrainAt(x + 1, y, name) == 'wall' ||
+      Game.map.getTerrainAt(x - 1, y, name) == 'wall' ||
+      Game.map.getTerrainAt(x, y + 1, name) == 'wall' ||
+      Game.map.getTerrainAt(x, y - 1, name) == 'wall') {
         log('Too close to a wall at ' + y)
     return true;
   }
@@ -74,7 +74,7 @@ let nearWall = (x, y, name) => {
 let nearSource = (x, y, name) => {
   const pos = Game.rooms[name].getPositionAt(x, y);
   const source = pos.findClosestByRange(FIND_SOURCES_ACTIVE);
-  if (source > 5) {
+  if (source > 3) {
     log('Not near a source')
     return false;
   }
