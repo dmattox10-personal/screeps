@@ -32,9 +32,7 @@ var tools = {
     } // Game.rooms
   }, // Setup
   map: () => {
-    for (var name in Memory.colonies.name) {
-      console.log(name)
-    }
+
 
   }
 } //END TOOLS
