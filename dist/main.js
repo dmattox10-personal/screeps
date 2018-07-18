@@ -68,8 +68,9 @@ if (scheduler.hundredTicks()) {
        /*
        if(creep.memory.role == 'builder') {
            roleBuilder.run(creep);
+           }
         */
-       }
+
      }
    }
 /*
