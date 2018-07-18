@@ -1,4 +1,3 @@
-var tools = require('tools.js')
 var mapper = {
   row: function(colony, ROOM_WIDTH)
 }

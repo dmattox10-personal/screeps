@@ -35,6 +35,7 @@ const ROOM_WIDTH = 50
 module.exports.loop = function () {
 // Do EVERYTHING per room
 tools.setup()
+tools.map()
 if (scheduler.hundredTicks()) {
   cleanup.deadCreeps()
   cleanup.preventShardStorage()
@@ -72,6 +73,7 @@ if (scheduler.hundredTicks()) {
         */
 
      }
+     // AFTER CREEP TASKS
    }
 /*
    // Instead of looping over all rooms to find mine, let's use our colonies memory object!

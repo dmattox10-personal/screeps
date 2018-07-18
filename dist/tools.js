@@ -30,7 +30,13 @@ var tools = {
         }
       } // Game.spawns
     } // Game.rooms
-  } // Setup
+  }, // Setup
+  map: () => {
+    for (var name in Memory.colonies) {
+      console.log(name)
+    }
+
+  }
 } //END TOOLS
 
 let search = (colony_name, colonyArray) => {
