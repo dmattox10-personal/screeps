@@ -33,7 +33,6 @@ const ROOM_WIDTH = 50
 // var source = sources[Math.floor(Math.random() * sources.length)]
 
 module.exports.loop = function () {
-  tools.setup()
 // Do EVERYTHING per room
   if (scheduler.hundredTicks()) {
            cleanup.deadCreeps()
@@ -76,6 +75,7 @@ module.exports.loop = function () {
    }
 */
    // Instead of looping over all rooms to find mine, let's use our colonies memory object!
+   tools.setup()
    for (var i = 0; i < Memory.colonies.length; i++) {
      let room_name = Memory.colonies[i].name
      for (var j = 0; j < Memory.colonies[i].creeps.length; j++ ) {
