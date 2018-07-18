@@ -36,7 +36,7 @@ var scheduler = {
       return true
     }
     return false
-  }
+  },
   thousandTicks: () => {
     if (Game.time % 1000 == 0) {
       return true;
