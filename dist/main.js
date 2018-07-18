@@ -36,11 +36,10 @@ module.exports.loop = function () {
 // Do EVERYTHING per room
 tools.setup()
 // RESET TO HUNDRED TICKS AFTER TESTING
-if (scheduler.tenTicks()) {
-  cleanup.deadCreeps()
-  cleanup.preventShardStorage()
-  for(var colony_name in Game.rooms) {
-    console.log(colony_name)
+  if (scheduler.tenTicks()) {
+    cleanup.deadCreeps()
+    cleanup.preventShardStorage()
+    for(var colony_name in Game.rooms) {
       for(var spawn_name in Game.spawns) {
         var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester')
         var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader')
@@ -54,7 +53,12 @@ if (scheduler.tenTicks()) {
       }
     }
   } // hundredTicks
-
+  for (var i = 0; i < Memory.colonies.length; i++) {
+    if (Memory.colonies[i].mapRow < ROOM_HEIGHT) {
+      map(Memory.colonies[i].name, Memory.colonies[i].mapRow, Memory.colonies[i].sources)
+      Memory.colonies[i].mapRow++
+    }
+  }
   // This cannot be scheduled !!!
   for (var room_name in Game.rooms) {
   for(var name in Game.creeps) {
