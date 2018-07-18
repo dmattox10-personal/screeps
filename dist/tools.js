@@ -28,16 +28,16 @@ var tools = {
         }
       } // Game.spawns
     } // Game.rooms
-  }, // Setup
-  search: (colony_name, colonyArray) => {
-      for (var i=0; i < colonyArray.length; i++) {
-          if (colonyArray[i].name === colony_name) {
-              return true
-          }
-          return false
-      }
-  }
+  } // Setup
 } //END TOOLS
 
+let search = (colony_name, colonyArray) => {
+    for (var i=0; i < colonyArray.length; i++) {
+        if (colonyArray[i].name === colony_name) {
+            return true
+        }
+        return false
+    }
+}
 
 module.exports = tools
