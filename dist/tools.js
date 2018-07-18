@@ -84,7 +84,8 @@ let nearSource = (x, y, name) => {
   }
 }
 let storeTile = (x, y, name) => {
-  let pos = {'x': x, 'y':y }
+  log('Need to store tile at x:' + x + ' y:' + y + ', in room ' + name)
+ let pos = {'x':x, 'y':y }
   for (let i = 0; i < Memory.colonies.length; i++) {
     if (Memory.colonies[i].name === name) {
   Memory.colonies[i].buildTiles.push(pos)

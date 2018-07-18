@@ -64,6 +64,9 @@ function NRG(x, y, name) { // Not Yet Implemented
   if (source > 3) {
     return false;
   }
+  else {
+    return true;
+  }
 }
 
 function storeTile(name, x, y) {
