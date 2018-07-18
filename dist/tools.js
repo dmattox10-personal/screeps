@@ -31,7 +31,7 @@ var tools = {
       } // Game.spawns
     } // Game.rooms
   }, // Setup
-  map: (row) => {
+  map: (name, row, sources) => {
     console.log(row)
 
   }
