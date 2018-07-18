@@ -38,7 +38,9 @@ let tools = {
   map: (name, y) => {
     log('mapping')
     for (var x = 0; x < ROOM_WIDTH; x++) {
+      log('column ' + x)
         let currentTile = Game.map.getTerrainAt(x, y, name)
+        log('Tile is ' + currentTile)
         if (currentTile === 'plain' && !nearWall(x, y, name) && !nearSource(x, y, name)) {
           if(storeTile(x, y, name)) {
             console.log('Tile Stored')
@@ -65,9 +67,11 @@ let nearWall = (x, y, name) => {
       Game.map.getTerrainAt(x - 2, y, name) == 'wall' ||
       Game.map.getTerrainAt(x, y + 2, name) == 'wall' ||
       Game.map.getTerrainAt(x, y - 2, name) == 'wall') {
+        log('Too close to a wall at ' + y)
     return true;
   }
   else {
+    log('Free Real Estate!')
     return false;
   }
 }
@@ -75,9 +79,11 @@ let nearSource = (x, y, name) => {
   const pos = Game.rooms[name].getPositionAt(x, y);
   const source = pos.findClosestByRange(FIND_SOURCES_ACTIVE);
   if (source > 5) {
+    log('Not near a source')
     return false;
   }
   else {
+    log('Near an energy source at ' + y)
     return true;
   }
 }
