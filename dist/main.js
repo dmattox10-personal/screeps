@@ -76,7 +76,7 @@ module.exports.loop = function () {
    }
 */
    // Instead of looping over all rooms to find mine, let's use our colonies memory object!
-   for (var i = 0; i < Memory.colonies.length) {
+   for (var i = 0; i < Memory.colonies.length; i++) {
      let room_name = Memory.colonies[i].name
      for (var j = 0; j < Memory.colonies[i].creeps.length; j++ ) {
        let creep_name = Memory.colonies[i].creeps[j].name
