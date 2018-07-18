@@ -32,8 +32,8 @@ var tools = {
     } // Game.rooms
   }, // Setup
   map: () => {
-    for (var room in Memory.colonies.name) {
-      console.log(room)
+    for (var name in Memory.colonies.name) {
+      console.log(name)
     }
 
   }
