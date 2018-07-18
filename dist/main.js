@@ -55,7 +55,7 @@ tools.setup()
   } // hundredTicks
   for (var i = 0; i < Memory.colonies.length; i++) {
     if (Memory.colonies[i].mapRow < ROOM_HEIGHT) {
-      tools.map(Memory.colonies[i].name, Memory.colonies[i].mapRow, Memory.colonies[i].sources)
+      tools.map(Memory.colonies[i].name, Memory.colonies[i].mapRow)
       Memory.colonies[i].mapRow++
     }
   }

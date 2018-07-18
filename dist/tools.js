@@ -32,12 +32,15 @@ let tools = {
       } // Game.spawns
     } // Game.rooms
   }, // Setup
-  map: (name, row, sources) => {
+  map: (name, y) => {
     for (var x = 0; x < ROOM_WIDTH; x++) {
-        let currentTile = Game.map.getTerrainAt(x, row, name)
-        console.log(currentTile)
-    }
-
+        let currentTile = Game.map.getTerrainAt(x, y, name)
+        if (currentTile === 'plain' && !nearWall(x, y, name) && !nearSource(x, y, name)) {
+          if(storeTile(x, y, name)) {
+            console.log('Tile Stored')
+          }
+        }
+      }
   },
 } //END TOOLS
 
@@ -49,18 +52,39 @@ let search = (colony_name, colonyArray) => {
         return false
     }
 }
-
-let nearWall = (name, row, column) => {
-
+let nearWall = (x, y, name) => {
+  if (Game.map.getTerrainAt(x + 1, y, name) == 'wall' ||
+      Game.map.getTerrainAt(x - 1, y, name) == 'wall' ||
+      Game.map.getTerrainAt(x, y + 1, name) == 'wall' ||
+      Game.map.getTerrainAt(x, y - 1, name) == 'wall' ||
+      Game.map.getTerrainAt(x + 2, y, name) == 'wall' ||
+      Game.map.getTerrainAt(x - 2, y, name) == 'wall' ||
+      Game.map.getTerrainAt(x, y + 2, name) == 'wall' ||
+      Game.map.getTerrainAt(x, y - 2, name) == 'wall') {
+    return true;
+  }
+  else {
+    return false;
+  }
 }
-let NRG = (name, row, column) => {
-
+let nearSource = (x, y, name) => {
+  const pos = Game.rooms[name].getPositionAt(x, y);
+  const source = pos.findClosestByRange(FIND_SOURCES_ACTIVE);
+  if (source > 5) {
+    return false;
+  }
+  else {
+    return true;
+  }
 }
-let empty = (name, row, column) => {
-
-}
-storeTile = (row, column) => {
+let storeTile = (x, y, name) => {
+  let pos = {'x': x, 'y':y }
+  for (let i = 0; i < Memory.colonies.length) {
+    if (Memory.colonies[i].name === name) {
+  Memory.colonies[i].buildTiles.push(pos)
   return true
+    }
+  }
 }
 
 module.exports = tools
