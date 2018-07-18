@@ -82,7 +82,7 @@ module.exports.loop = function () {
        let creep_name = Memory.colonies[i].creeps[j].name
        let creep = Game.creeps[name]
        // RUN ALL CREEPS HERE
-       if(creep.memory.role == 'harvester') {
+       if(Memory.colonies[i].creeps[j].role == 'harvester') {
            harvesterV3.run(creep, room_name)
        }
        if(creep.memory.role == 'upgrader') {
