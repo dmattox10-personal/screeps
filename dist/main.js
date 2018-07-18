@@ -34,6 +34,7 @@ const ROOM_WIDTH = 50
 
 module.exports.loop = function () {
 // Do EVERYTHING per room
+delete Memory.colonies
 tools.setup()
 if (scheduler.hundredTicks()) {
   cleanup.deadCreeps()
