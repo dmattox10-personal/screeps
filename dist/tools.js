@@ -1,5 +1,6 @@
 // TODO Eventually, check for memory.colonies against current room name, to never run this again?
-var tools = {
+const ROOM_WIDTH = 50
+let tools = {
   setup: () => {
 
     for (var colony_name in Game.rooms) {
