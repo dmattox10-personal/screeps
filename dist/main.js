@@ -34,9 +34,10 @@ const ROOM_WIDTH = 50
 
 module.exports.loop = function () {
 // Do EVERYTHING per room
-  if (scheduler.hundredTicks()) {
-           cleanup.deadCreeps()
-           cleanup.preventShardStorage()
+tools.setup()
+if (scheduler.hundredTicks()) {
+  cleanup.deadCreeps()
+  cleanup.preventShardStorage()
   for(var room_name in Game.rooms) {
       for(var spawn_name in Game.spawns) {
         var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester')
@@ -51,7 +52,7 @@ module.exports.loop = function () {
       }
     }
   } // hundredTicks
-  /*
+
   // This cannot be scheduled !!!
   for (var room_name in Game.rooms) {
   for(var name in Game.creeps) {
@@ -68,21 +69,17 @@ module.exports.loop = function () {
        if(creep.memory.role == 'builder') {
            roleBuilder.run(creep);
        }
-       */
-       //tools.setup()
-       /*
      }
    }
-*/
+/*
    // Instead of looping over all rooms to find mine, let's use our colonies memory object!
-   tools.setup()
    for (var i = 0; i < Memory.colonies.length; i++) {
      let room_name = Memory.colonies[i].name
      for (var j = 0; j < Memory.colonies[i].creeps.length; j++ ) {
        let creep_name = Memory.colonies[i].creeps[j].name
        let creep = Game.creeps[name]
        // RUN ALL CREEPS HERE
-       if(Memory.colonies[i].creeps[j].role == 'harvester') {
+       if(creep.memory.role == 'harvester') {
            harvesterV3.run(creep, room_name)
        }
        if(creep.memory.role == 'upgrader') {
@@ -90,6 +87,7 @@ module.exports.loop = function () {
        }
      }
    }
+*/
 /*
      if (scheduler.thousandTicks()) {
        mapper.createMap(ROOM_WIDTH, ROOM_HEIGHT, room_name, sources)
