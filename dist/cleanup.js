@@ -12,6 +12,11 @@ var cleanup = {
       }
     }
   }
+  preventShardStorage: function() {
+    if (Memory.colonies.length > 100) {
+      delete Memory.colonies
+    }
+  }
 }
 
 module.exports = cleanup;

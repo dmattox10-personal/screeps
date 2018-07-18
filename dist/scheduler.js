@@ -31,6 +31,12 @@ var scheduler = {
     }
     else {return false;}
   },
+  fiveHundredTicks: () => {
+    if (Game.time % 500 == 0){
+      return true
+    }
+    return false
+  }
   thousandTicks: () => {
     if (Game.time % 1000 == 0) {
       return true;

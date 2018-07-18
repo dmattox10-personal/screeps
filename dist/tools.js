@@ -15,6 +15,8 @@ var tools = {
           let colony = {}
           colony.name = current_colony_name
           colony.sources = Game.rooms[current_colony_name].find(FIND_SOURCES)
+          colony.setup = 1
+          colony.map = []
           // TODO Map row by row, saving the NEXT row as a variable!
           // TODO set colony.level to RCL?
           // TODO Store the map as an array on the colony instead of solo
@@ -27,15 +29,15 @@ var tools = {
       } // Game.spawns
     } // Game.rooms
   } // Setup
+  search: (colony_name, colonyArray) => {
+      for (var i=0; i < colonyArray.length; i++) {
+          if (colonyArray[i].name === colony_name) {
+              return true
+          }
+          return false
+      }
+  }
 } //END TOOLS
 
-function search(colony_name, colonyArray){
-    for (var i=0; i < colonyArray.length; i++) {
-        if (colonyArray[i].name === colony_name) {
-            return true
-        }
-        return false
-    }
-}
 
 module.exports = tools
