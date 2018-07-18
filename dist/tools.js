@@ -38,10 +38,10 @@ let tools = {
   map: (name, y) => {
     log('mapping')
     for (var x = 0; x < ROOM_WIDTH; x++) {
-      log('column ' + x)
+      log('column ' + x + ', row ' + y)
         let currentTile = Game.map.getTerrainAt(x, y, name)
-        log('Tile is ' + currentTile)
         if (currentTile === 'plain' && !nearWall(x, y, name) && !nearSource(x, y, name)) {
+          log('Tile is ' + currentTile)
           if(storeTile(x, y, name)) {
             console.log('Tile Stored')
           }
@@ -59,11 +59,7 @@ let search = (colony_name, colonyArray) => {
     }
 }
 let nearWall = (x, y, name) => {
-  if (Game.map.getTerrainAt(x + 1, y, name) == 'wall' ||
-      Game.map.getTerrainAt(x - 1, y, name) == 'wall' ||
-      Game.map.getTerrainAt(x, y + 1, name) == 'wall' ||
-      Game.map.getTerrainAt(x, y - 1, name) == 'wall' ||
-      Game.map.getTerrainAt(x + 2, y, name) == 'wall' ||
+  if (Game.map.getTerrainAt(x + 2, y, name) == 'wall' ||
       Game.map.getTerrainAt(x - 2, y, name) == 'wall' ||
       Game.map.getTerrainAt(x, y + 2, name) == 'wall' ||
       Game.map.getTerrainAt(x, y - 2, name) == 'wall') {
