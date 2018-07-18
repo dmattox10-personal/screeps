@@ -35,11 +35,12 @@ const ROOM_WIDTH = 50
 module.exports.loop = function () {
 // Do EVERYTHING per room
 tools.setup()
-tools.map()
+
 if (scheduler.hundredTicks()) {
   cleanup.deadCreeps()
   cleanup.preventShardStorage()
   for(var room_name in Game.rooms) {
+    console.log(room_name)
       for(var spawn_name in Game.spawns) {
         var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester')
         var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader')
@@ -74,6 +75,7 @@ if (scheduler.hundredTicks()) {
 
      }
      // AFTER CREEP TASKS
+
    }
 /*
    // Instead of looping over all rooms to find mine, let's use our colonies memory object!
