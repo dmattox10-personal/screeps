@@ -35,7 +35,7 @@ const ROOM_WIDTH = 50
 module.exports.loop = function () {
 // Do EVERYTHING per room
 tools.setup()
-
+// RESET TO HUNDRED TICKS AFTER TESTING
 if (scheduler.tenTicks()) {
   cleanup.deadCreeps()
   cleanup.preventShardStorage()
