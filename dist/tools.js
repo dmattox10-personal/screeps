@@ -1,5 +1,6 @@
 // TODO Eventually, check for memory.colonies against current room name, to never run this again?
 const ROOM_WIDTH = 50
+const log = console.log()
 let tools = {
   setup: () => {
 
@@ -33,6 +34,7 @@ let tools = {
     } // Game.rooms
   }, // Setup
   map: (name, y) => {
+    log('mapping')
     for (var x = 0; x < ROOM_WIDTH; x++) {
         let currentTile = Game.map.getTerrainAt(x, y, name)
         if (currentTile === 'plain' && !nearWall(x, y, name) && !nearSource(x, y, name)) {
