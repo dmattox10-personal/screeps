@@ -36,11 +36,11 @@ module.exports.loop = function () {
 // Do EVERYTHING per room
 tools.setup()
 
-if (scheduler.hundredTicks()) {
+if (scheduler.tenTicks()) {
   cleanup.deadCreeps()
   cleanup.preventShardStorage()
-  for(var room_name in Game.rooms) {
-    console.log(room_name)
+  for(var colony_name in Game.rooms) {
+    console.log(colony_name)
       for(var spawn_name in Game.spawns) {
         var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester')
         var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader')
