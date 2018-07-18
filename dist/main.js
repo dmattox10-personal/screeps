@@ -34,7 +34,6 @@ const ROOM_WIDTH = 50
 
 module.exports.loop = function () {
 // Do EVERYTHING per room
-delete Memory.colonies
   if (scheduler.hundredTicks()) {
            cleanup.deadCreeps()
            cleanup.preventShardStorage()
