@@ -8,10 +8,8 @@ var tools = {
         let current_colony_name = current_colony.name // DNM
         if (!Memory.colonies) {
           Memory.colonies = []
-          console.log("colonies inserted into memory")
         }
         if (!search(colony_name, Memory.colonies)) {
-          console.log("Colony Does Not Exist")
           let colony = {}
           colony.name = current_colony_name
           colony.sources = Game.rooms[current_colony_name].find(FIND_SOURCES)
@@ -22,9 +20,6 @@ var tools = {
           // TODO Store the map as an array on the colony instead of solo
           // TODO Harvesters level?
           Memory.colonies.push(colony)
-        }
-        else {
-          console.log("Colony Exists!")
         }
       } // Game.spawns
     } // Game.rooms
