@@ -17,145 +17,7 @@ var harvesterV3 = require('harvesterV3')
 var upgraderV3 = require('upgraderV3')
 var mapper = require('mapper')
 var tools = require('tools')
-
-const spawnsPerLevel = [1,1,1,1,1,1,2,3]
-const extensionsPerLevel = [0, 0, 5, 10, 20, 30, 40, 50, 60]
-const extensionsCapacityPerLevel = [0,0,0,50,50,50,50,50,100,200]
-const rampartHitsPerLevel = [0,0,1,3,10,30,100,300]
-const towersPerLevel = [0,0,0,1,1,2,2,3,6]
-const linksPerLevel = [0,0,0,0,0,2,3,4,6]
-const labsPerLevel = [0,0,0,0,0,0,3,6,10]
-const ROOM_HEIGHT = 50
-const ROOM_WIDTH = 50
-
-const construction = [
-  {
-    spawns: 1,
-    extensions: 0,
-    extCapacity: 0,
-    rampartHits: 0,
-    towers: 0,
-    storage: 0,
-    links: 0,
-    extractor: 
-    labs:
-    terminal: 
-    observer: 
-    pSpawn: 
-  },
-  {
-    spawns: 1,
-    extensions: 0,
-    extCapacity: 0, 
-    rampartHits: 0,
-    towers: 0,
-    storage: 0,
-    links: 0, 
-    extractor: 
-    labs:
-    terminal: 
-    observer: 
-    pSpawn: 
-  },
-  {
-    spawns: 1,
-    extensions: 5,
-    extCapacity: 50,
-    rampartHits: 300000,
-    towers: 0,
-    storage: 0,
-    links: 0,
-    extractor: 
-    labs:
-    terminal: 
-    observer: 
-    pSpawn: 
-  },
-  {
-    spawns: 1,
-    extensions: 10,
-    extCapacity: 3,
-    rampartHits: 1000000,
-    towers: 1,
-    storage: 0, 
-    links: 0,
-    extractor: 
-    labs:
-    terminal: 
-    observer: 
-    pSpawn: 
-  },
-  {
-    spawns: 1,
-    extensions: 20,
-    extCapacity: 50,
-    rampartHits: 3000000,
-    towers: 1,
-    storage: 1,
-    links: 0,
-    extractor: 
-    labs:
-    terminal: 
-    observer: 
-    pSpawn: 
-  },
-  {
-    spawns: 1,
-    extensions: 30,
-    extCapacity: 50,
-    rampartHits: 10000000,
-    towers: 2,
-    storage: 1,
-    links: 2,
-    extractor: 
-    labs:
-    terminal: 
-    observer: 
-    pSpawn: 
-  },
-  {
-    spawns: 1,
-    extensions: 40,
-    extCapacity: 50,
-    rampartHits: 30000000,
-    towers: 2,
-    storage: 1,
-    links: 3,
-    extractor: 
-    labs:
-    terminal: 
-    observer: 
-    pSpawn: 
-  },
-  {
-    spawns: 2,
-    extensions: 50,
-    extCapacity: 100,
-    rampartHits: 100000000,
-    towers: 3,
-    storage: 1,
-    links: 4,
-    extractor: 
-    labs:
-    terminal: 
-    observer: 
-    pSpawn: 
-  },
-  {
-    spawns: 3,
-    extensions: 60,
-    extCapacity: 200,
-    rampartHits: 300000000,
-    towers: 6,
-    storage: 1,
-    links: 6,
-    extractor: 
-    labs:
-    terminal: 
-    observer: 
-    pSpawn: 
-  },
-]
+const values = require('values')
 
 // Move to Harvester
 // var sources = Game.rooms[room_name].find(FIND_SOURCES)
@@ -183,7 +45,7 @@ tools.setup()
     }
   } // hundredTicks
   for (var i = 0; i < Memory.colonies.length; i++) {
-    if (Memory.colonies[i].mapRow < ROOM_HEIGHT) {
+    if (Memory.colonies[i].mapRow < values.ROOM_HEIGHT) {
       tools.map(Memory.colonies[i].name, Memory.colonies[i].mapRow)
       Memory.colonies[i].mapRow++
     }
