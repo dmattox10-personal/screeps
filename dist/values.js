@@ -1,4 +1,4 @@
-export const construction = [
+const construction = [
     {
       spawns: 1,
       extensions: 0,
@@ -127,8 +127,8 @@ export const construction = [
     },
   ]
 
-  export const ROOM_HEIGHT = 50
-  export const ROOM_WIDTH = 50
+  const ROOM_HEIGHT = 50
+  const ROOM_WIDTH = 50
 
 module.exports = {
     construction,

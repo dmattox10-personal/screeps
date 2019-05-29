@@ -1,8 +1,6 @@
 // TODO Eventually, check for memory.colonies against current room name, to never run this again?
 const ROOM_WIDTH = 50
-const log = (contents) => {
-  console.log(contents)
-}
+let log = console.log.bind(console)
 let tools = {
   setup: () => {
 

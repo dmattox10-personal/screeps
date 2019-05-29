@@ -19,6 +19,8 @@ var mapper = require('mapper')
 var tools = require('tools')
 const values = require('values')
 
+let log = console.log.bind(console)
+
 // Move to Harvester
 // var sources = Game.rooms[room_name].find(FIND_SOURCES)
 // var source = sources[Math.floor(Math.random() * sources.length)]
@@ -44,12 +46,17 @@ tools.setup()
       }
     }
   } // hundredTicks
+  /*
   for (var i = 0; i < Memory.colonies.length; i++) {
     if (Memory.colonies[i].mapRow < values.ROOM_HEIGHT) {
       tools.map(Memory.colonies[i].name, Memory.colonies[i].mapRow)
       Memory.colonies[i].mapRow++
     }
   }
+  */
+ if (scheduler.tenTicks) {
+   
+ }
   // This cannot be scheduled !!!
   for (var room_name in Game.rooms) {
   for(var name in Game.creeps) {
