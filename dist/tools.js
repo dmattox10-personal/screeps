@@ -1,5 +1,6 @@
 // TODO Eventually, check for memory.colonies against current room name, to never run this again?
 const ROOM_WIDTH = 50
+const values = require('values')
 let log = console.log.bind(console)
 let tools = {
   setup: () => {
@@ -11,15 +12,17 @@ let tools = {
         // In case of total desctruction we must recreate the memory object
         if (!Memory.colonies) {
           Memory.colonies = []
-        }
+        } 
         // CREATE COLONY OBJECT
         if (!search(colony_name, Memory.colonies)) {
           let colony = {}
+          colony.terrain = new Array(values.ROOM_HEIGHT).fill(0).map(() => new Array(values.ROOM_WIDTH).fill('0'))
           colony.name = current_colony_name
           colony.sources = Game.rooms[current_colony_name].find(FIND_SOURCES)
           colony.phase = 0
           colony.danger = 0
           colony.mapRow = 0
+          colony.mapColumn = 0
           colony.buildTiles = []
           colony.structures = []
           colony.spawns = []
