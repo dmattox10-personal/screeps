@@ -19,4 +19,4 @@ var cleanup = {
   }
 }
 
-module.exports = cleanup;
+module.exports = cleanup
