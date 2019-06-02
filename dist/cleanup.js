@@ -16,6 +16,13 @@ var cleanup = {
     if (Memory.colonies.length > 100) {
       delete Memory.colonies
     }
+  },
+  preventOverflow: function() {
+    for (let i = 0; i < Memory.colonies.length; i++) {
+      if (Memory.colonies[i].creepID > 3000) {
+        Memory.colonies[i].creepID = 0
+      }
+    }
   }
 }
 

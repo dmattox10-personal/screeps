@@ -1,11 +1,11 @@
-spawn = (room, spawn_name) => {
+spawn = (room, spawn_name, id) => {
     var name = 'harvester' + Game.time // TODO switch to UUID-Lib
     var components = [WORK,CARRY,MOVE]
     Game.spawns[spawn_name].spawnCreep(components, name, {
         memory: 
         {
             role: 'harvester',
-            id: Game.time,
+            id: id,
             room: room
         }
     })
@@ -13,6 +13,7 @@ spawn = (room, spawn_name) => {
 
 run = (creep, source) => {
     if(creep.carry.energy < creep.carryCapacity) {
+        var sources = creep.room.find(FIND_SOURCES)
         if(creep.harvest(source) == ERR_NOT_IN_RANGE) {
             //creep.moveTo(Memory.rooms.room_name.sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
             creep.moveTo(source, {visualizePathStyle: {stroke: '#ffaa00'}})
@@ -34,7 +35,7 @@ run = (creep, source) => {
     }
 }
 
-module.exports= {
+module.exports = {
     spawn,
     run
 }

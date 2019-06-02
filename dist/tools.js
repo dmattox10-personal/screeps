@@ -23,6 +23,7 @@ let tools = {
           colony.danger = 0
           colony.mapRow = 0
           colony.mapColumn = 0
+          colony.creepID = 0
           colony.buildTiles = []
           colony.structures = []
           colony.spawns = []
