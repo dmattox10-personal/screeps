@@ -18,7 +18,7 @@ module.exports.loop = function () {
 		cleanup.deadCreeps()
 		cleanup.preventShardStorage()
 		for (var i = 0; i < Memory.colonies.length; i++) {
-			let spawn_name = Memory.colonies[i].spawns[0]
+			let spawn_name = Memory.colonies[i].spawns[0].name // Need to do 'per spawn'
 			let colony_name = Memory.colonies[i].name
 			var foremen = _.filter(Game.creeps, (creep) => creep.memory.role == 'foreman')
 			var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester')
@@ -93,7 +93,6 @@ module.exports.loop = function () {
 	}
 
 	// Mapping
-
 	for (var i = 0; i < Memory.colonies.length; i++) {
 		let room = Memory.colonies[i].name
 		let col = Memory.colonies[i].mapColumn
@@ -116,6 +115,27 @@ module.exports.loop = function () {
 			Memory.colonies[i].terrain[col][row] = weight
 			log(Memory.colonies[i].terrain[col][row])
 			Memory.colonies[i].mapColumn++
+		}
+	}
+
+	// Building
+	for (var i = 0; i < Memory.colonies.length; i++) {
+		for (var j = 0; j < Memory.colonies[i].spawns.length; i++) {
+			let spawn_name = Memory.colonies[i].spawns[j].name
+			let room_name = Memory.colonies[i].name
+			let sources = Game.spawns[spawn_name].room.find(FIND_SOURCES)
+			if (Memory.colonies[i].spawns[j].roadSource1Path.length < 1) {
+				let source = sources[0]
+				Memory.colonies[i].spawns[j].roadSource1Path = Game.spawns[spawn_name].pos.findPathTo(source.pos)
+			}
+			if (Memory.colonies[i].spawns[j].roadSource2Path.length < 1) {
+				let source = sources[1]
+				Memory.colonies[i].spawns[j].roadSource2Path = Game.spawns[spawn_name].pos.findPathTo(source.pos)
+			}
+			if (Memory.colonies[i].spawns[j].roadRoomConPath1.length < 1) {
+				Memory.colonies[i].spawns[j].roadRoomConPath1 = Game.rooms[room_name].controller.pos.findPathTo(sources[0].pos)
+				Memory.colonies[i].spawns[j].roadRoomConPath2 = Game.rooms[room_name].controller.pos.findPathTo(sources[1].pos)
+			}
 		}
 	}
 } //END OF GAME LOOP

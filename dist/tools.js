@@ -27,7 +27,28 @@ let tools = {
           colony.buildTiles = []
           colony.structures = []
           colony.spawns = []
-          colony.spawns[0] = spawn_name
+          // We'll create info for the first spawn, creating a second spawn will do this again on it's own.
+          colony.spawns[0] = {
+          'name': spawn_name,
+          'roadSource1Path': [],
+          'roadSource1Prog': 0,
+          'roadSource2Path': [],
+          'roadSource2Prog': 0,
+          'roadRoomConPath1': [],
+          'roadRoomConProg1': 0,
+          'roadRoomConPath2': [],
+          'roadRoomConProg2': 0,
+          }
+          /*
+          colony.roadSource1 = []
+          colony.roadSource2 = []
+          colony.roadRoomController = []
+          colony.roadProgress = {
+            roadSource1: '',
+            roadSource2: '',
+            roadRoomController: ''
+          }
+          */
           // TODO Map row by row, saving the NEXT row as a variable!
           // TODO set colony.level to RCL?
           // TODO Store the map as an array on the colony instead of solo
@@ -47,6 +68,7 @@ let search = (colony_name, colonyArray) => {
         return false
     }
 }
+/*
 let nearWall = (x, y, name) => {
   if (Game.map.getTerrainAt(x + 1, y, name) == 'wall' ||
       Game.map.getTerrainAt(x - 1, y, name) == 'wall' ||
@@ -60,6 +82,8 @@ let nearWall = (x, y, name) => {
     return false;
   }
 }
+*/
+/*
 let nearSource = (x, y, name) => {
   const pos = Game.rooms[name].getPositionAt(x, y);
   const source = pos.findClosestByRange(FIND_SOURCES_ACTIVE);
@@ -72,6 +96,8 @@ let nearSource = (x, y, name) => {
     return true;
   }
 }
+*/
+/*
 let storeTile = (x, y, name) => {
   log('Need to store tile at x:' + x + ' y:' + y + ', in room ' + name)
  let pos = {'x':x, 'y':y }
@@ -82,5 +108,5 @@ let storeTile = (x, y, name) => {
     }
   }
 }
-
+*/
 module.exports = tools
