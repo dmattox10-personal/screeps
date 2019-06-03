@@ -5,6 +5,7 @@ var upgraderV4 = require('upgraderV4')
 var foremanV1 = require('foremanV1')
 //var mapper = require('mapper')
 var tools = require('tools')
+var dot = require('dotV1')
 const values = require('values')
 
 let log = console.log.bind(console)
@@ -22,19 +23,30 @@ module.exports.loop = function () {
 			var foremen = _.filter(Game.creeps, (creep) => creep.memory.role == 'foreman')
 			var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester')
 			var upgraders  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader')
+			var dotR = _.filter(Game.creeps, (creep) => creep.memory.role == 'dotR')
+			var dotS = _.filter(Game.creeps, (creep) => creep.memory.role == 'dotS')
 			//var builders   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder')
 			
 			if (foremen.length < 1) {
 				foremanV1.spawn(spawn_name)
 			}
-			if (harvesters.length < 5) {
+			if (harvesters.length < 3) {
 				Memory.colonies[i].creepID++
 				harvesterV4.spawn(colony_name, spawn_name, Memory.colonies[i].creepID)
 			}
-			if (upgraders.length < 5) {
+			if (upgraders.length < 3) {
 				Memory.colonies[i].creepID++
 				upgraderV4.spawn(colony_name, spawn_name, Memory.colonies[i].creepID)
 			}
+			/*
+			if (dotR.length < 1) {
+				dot.spawnRoom(colony_name, spawn_name)
+			}
+			if (dotS.length < 4) {
+				Memory.colonies[i].creepID++
+				dot.spawnRoad(colony_name, spawn_name, Memory.colonies[i].creepID)
+			}
+			*/
 		}
 	} 
 	// Running creeps
