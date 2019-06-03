@@ -16,7 +16,7 @@ let tools = {
         // CREATE COLONY OBJECT
         if (!search(colony_name, Memory.colonies)) {
           let colony = {}
-          colony.terrain = new Array(values.ROOM_HEIGHT).fill(0).map(() => new Array(values.ROOM_WIDTH).fill('0'))
+          colony.terrain = new Array(values.ROOM_HEIGHT).fill(0).map(() => new Array(values.ROOM_WIDTH).fill('3'))
           colony.name = current_colony_name
           colony.sources = Game.rooms[current_colony_name].find(FIND_SOURCES)
           colony.phase = 0
